@@ -37,7 +37,7 @@ $(OUTPUT_DIR):
 # ─── Website ──────────────────────────────────────────────────
 .PHONY: website
 website:
-	@echo "Website-Ziel: noch nicht implementiert. Astro-Projekt folgt in Phase 2."
+	docker compose up -d website
 
 # ─── Tests ────────────────────────────────────────────────────
 .PHONY: test
@@ -45,9 +45,12 @@ test:
 	@echo "Tests: noch nicht implementiert. Playwright-Tests folgen in Phase 3."
 
 # ─── Docker ───────────────────────────────────────────────────
-.PHONY: docker-up
+.PHONY: docker-up docker-down
 docker-up:
-	@echo "Docker: noch nicht implementiert."
+	docker compose up -d
+
+docker-down:
+	docker compose down
 
 # ─── Clean ────────────────────────────────────────────────────
 .PHONY: clean
@@ -69,5 +72,6 @@ help:
 	@echo "  make website    Website starten"
 	@echo "  make test       Tests ausführen"
 	@echo "  make docker-up  Docker starten"
+	@echo "  make docker-down Docker stoppen"
 	@echo "  make clean      Output-Ordner löschen"
 	@echo ""
