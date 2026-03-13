@@ -119,17 +119,71 @@ Deferred to future work. Only if time permits.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be filled by roadmapper) | | |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Pending |
+| INFRA-04 | Phase 8 | Pending |
+| INFRA-05 | Phase 8 | Pending |
+| BRAND-01 | Phase 4 | Pending |
+| BRAND-02 | Phase 4 | Pending |
+| BRAND-03 | Phase 4 | Pending |
+| DEL-A1 | Phase 2 | Pending |
+| DEL-A2 | Phase 2 | Pending |
+| DEL-A3 | Phase 2 | Pending |
+| DEL-A4 | Phase 3 | Pending |
+| DEL-A5 | Phase 3 | Pending |
+| DEL-B1 | Phase 5 | Pending |
+| DEL-B2 | Phase 5 | Pending |
+| DEL-B3 | Phase 5 | Pending |
+| DEL-B4 | Phase 6 | Pending |
+| DEL-B5 | Phase 6 | Pending |
+| DEL-B6 | Phase 6 | Pending |
+| DEL-B7 | Phase 6 | Pending |
+| DEL-C1 | Phase 7 | Pending |
+| DEL-C2 | Phase 7 | Pending |
+| DEL-C3 | Phase 7 | Pending |
+| DEL-C4 | Phase 8 | Pending |
+| DEL-C5 | Phase 8 | Pending |
+| DEL-D1 | Phase 12 | Pending |
+| DEL-D2 | Phase 12 | Pending |
+| DEL-D3 | Phase 12 | Pending |
+| DEL-D4 | Phase 12 | Pending |
+| DEL-D5 | Phase 12 | Pending |
+| WEB-01 | Phase 9 | Pending |
+| WEB-02 | Phase 9 | Pending |
+| WEB-03 | Phase 9 | Pending |
+| WEB-04 | Phase 9 | Pending |
+| WEB-05 | Phase 10 | Pending |
+| WEB-06 | Phase 10 | Pending |
+| WEB-07 | Phase 10 | Pending |
+| WEB-08 | Phase 10 | Pending |
+| WEB-09 | Phase 10 | Pending |
+| WEB-10 | Phase 9 | Pending |
+| WEB-11 | Phase 9 | Pending |
+| WEB-12 | Phase 9 | Pending |
+| TEST-01 | Phase 11 | Pending |
+| TEST-02 | Phase 11 | Pending |
+| TEST-03 | Phase 11 | Pending |
+| TEST-04 | Phase 11 | Pending |
+| TEST-05 | Phase 11 | Pending |
+| HERM-01 | Phase 2 | Pending |
+| HERM-02 | Phase 2 | Pending |
+| HERM-03 | Phase 5 | Pending |
+| HERM-04 | Phase 6 | Pending |
+| HERM-05 | Phase 6 | Pending |
+| HERM-06 | Phase 6 | Pending |
+| HERM-07 | Phase 7 | Pending |
+| HERM-08 | Phase 12 | Pending |
+| HERM-09 | Phase 12 | Pending |
+| HERM-10 | Phase 12 | Pending |
 
 **Coverage:**
-- v1 requirements: 47 total
-- Mapped to phases: 0
-- Unmapped: 47
+- v1 requirements: 57 total
+- Mapped to phases: 57
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-13*
-*Last updated: 2026-03-13 after initial definition*
+*Last updated: 2026-03-13 after roadmap creation*
