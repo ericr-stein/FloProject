@@ -64,7 +64,7 @@ Plans:
   3. PDF renders correctly with professional formatting (Eisvogel template, proper headings, no broken characters)
 **Plans:** 1/1 plans complete
 Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+- [x] 03-01-PLAN.md — Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
 
 ### Phase 4: Brand Identity
 **Goal**: A complete brand book exists that drives all visual decisions for website and PDFs
@@ -78,7 +78,7 @@ Plans:
   4. Brand book is documented as a standalone reference file in brand/ directory
 **Plans:** 1 plan
 Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+- [ ] 04-01-PLAN.md — Audit token sync, add accessibility/image sections, verify PDF rendering
 
 ### Phase 5: Specification Core (DEL-B1 to B3)
 **Goal**: Project overview, target audience strategy, and content structure are specified in detail
@@ -90,9 +90,7 @@ Plans:
   2. Target audience analysis identifies primary and secondary users with personas, positioning, and measurable KPIs
   3. Sitemap and content plan cover all pages with tonality guidelines, storytelling approach, and DE/EN multilingual strategy
   4. HERMES Anforderungsspezifikation (functional and non-functional requirements) is embedded in the specification
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 6: Specification Technical (DEL-B4 to B7)
 **Goal**: Deliverable B is complete with technical spec, UX guidelines, project plan, and submitted as PDF
@@ -105,9 +103,7 @@ Plans:
   3. Project management section includes HERMES milestones, timeline, responsibilities, acceptance criteria, and testing strategy
   4. Final PDF is in German academic tone, at least 10 full DIN A4 pages, with professional formatting
   5. HERMES Loesungsarchitektur, Testkonzept, and Projektmanagementplan are embedded in the deliverable
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 7: Wireframes & Layout (DEL-C1 to C3)
 **Goal**: All page wireframes and user interaction flows are designed and annotated
@@ -120,9 +116,7 @@ Plans:
   3. Wireframes are annotated with information hierarchy, responsive behavior notes, and component references
   4. User flow descriptions show how visitors navigate between pages, with interaction design patterns documented
   5. HERMES Detailspezifikation content is embedded in the wireframe document
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 8: Wireframes Completion (DEL-C4 to C5)
 **Goal**: Deliverable C is finalized, Docker skeleton works, and PDF is submitted
@@ -134,9 +128,7 @@ Plans:
   2. Final PDF is in German academic tone, at least 10 full DIN A4 pages, with embedded wireframe images
   3. Docker multi-stage build (Dockerfile + docker-compose.yml) produces a working nginx:alpine container
   4. Running `docker compose up` serves at least a placeholder page accessible in the browser
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 9: Website Core Pages
 **Goal**: The four most content-heavy pages are built, styled, and bilingual
@@ -149,9 +141,7 @@ Plans:
   3. News/Blog page shows at least 5 date-sorted article cards with content in both DE and EN
   4. Events page displays upcoming and past alpine sports events in both DE and EN
   5. Language switcher toggles between DE and EN with Astro i18n routing, navigation is sticky and accessible
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 10: Website Extended Pages & Features
 **Goal**: All remaining pages are built, responsive design works across breakpoints, brand is applied everywhere
@@ -164,9 +154,7 @@ Plans:
   3. Contact page displays contact information, location, and social links in both DE and EN
   4. Impressum and Datenschutz pages contain legally required content in German
   5. All pages render correctly on mobile (375px), tablet (768px), and desktop (1280px+) breakpoints
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 11: Testing & Docker
 **Goal**: Playwright E2E tests verify the website works, Docker Compose runs everything
@@ -179,9 +167,7 @@ Plans:
   3. Playwright tests verify responsive design at mobile, tablet, and desktop breakpoints
   4. Playwright tests verify bilingual content and language switching (DE content on /de/, EN content on /en/)
   5. All tests run inside Docker Compose alongside the website container via `docker compose run tests`
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ### Phase 12: Documentation & Submission (DEL-D1 to D5)
 **Goal**: Deliverable D documentation is complete, HERMES closure done, everything submitted
@@ -194,10 +180,7 @@ Plans:
   3. Brand design section documents how brand book was implemented on the website with visual examples
   4. Change management section documents all significant changes vs. original specification with reasons and lessons learned
   5. Final PDF is in German academic tone, at least 5 full DIN A4 pages, and HERMES Testbericht, Betriebshandbuch, and Abnahmebericht are included
-
-**Plans:** 1 plan
-Plans:
-- [ ] 03-01-PLAN.md � Review technology section, fix Lighthouse CI mention, rebuild and verify final PDF
+**Plans:** [To be planned]
 
 ---
 
@@ -208,7 +191,7 @@ Plans:
 | 1. Infrastructure & PDF Pipeline | 1/1 | Complete | 2026-03-13 |
 | 2. Topic Definition (DEL-A1 to A3) | 0/1 | Planning | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 1/1 | Complete   | 2026-03-13 |
-| 4. Brand Identity | 0/? | Not started | - |
+| 4. Brand Identity | 0/1 | Planning | - |
 | 5. Specification Core (DEL-B1 to B3) | 0/? | Not started | - |
 | 6. Specification Technical (DEL-B4 to B7) | 0/? | Not started | - |
 | 7. Wireframes & Layout (DEL-C1 to C3) | 0/? | Not started | - |
