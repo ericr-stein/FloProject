@@ -1,0 +1,104 @@
+/*
+ * GreenSport Graubünden — CSS Custom Properties
+ * Brand reference: brand/BRAND-BOOK.md
+ *
+ * Import in Astro: @import '../brand/variables.css';
+ */
+
+:root {
+  /* ── Primary ─────────────────────────────────── */
+  --color-primary:        #2D6A4F;
+  --color-primary-light:  #52B788;
+  --color-primary-dark:   #1B4332;
+
+  /* ── Secondary ───────────────────────────────── */
+  --color-secondary:       #264653;
+  --color-secondary-light: #4A90A4;
+  --color-secondary-dark:  #1A323D;
+
+  /* ── Accent ──────────────────────────────────── */
+  --color-accent:       #E9C46A;
+  --color-accent-light: #F2D98B;
+  --color-accent-dark:  #C9A227;
+
+  /* ── Status ──────────────────────────────────── */
+  --color-success: #40916C;
+  --color-warning: #E76F51;
+  --color-error:   #D62828;
+  --color-info:    #4A90A4;
+
+  /* ── Neutrals ────────────────────────────────── */
+  --color-white:    #FFFFFF;
+  --color-gray-50:  #F8F9FA;
+  --color-gray-100: #E9ECEF;
+  --color-gray-200: #DEE2E6;
+  --color-gray-400: #ADB5BD;
+  --color-gray-600: #6C757D;
+  --color-gray-800: #343A40;
+  --color-gray-900: #212529;
+  --color-black:    #000000;
+
+  /* ── Chart series (1–5) ──────────────────────── */
+  --color-chart-1: #2D6A4F;
+  --color-chart-2: #264653;
+  --color-chart-3: #E9C46A;
+  --color-chart-4: #52B788;
+  --color-chart-5: #E76F51;
+
+  /* ── Typography ──────────────────────────────── */
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --text-h1:      2.25rem;   /* 36px */
+  --text-h2:      1.75rem;   /* 28px */
+  --text-h3:      1.375rem;  /* 22px */
+  --text-h4:      1.125rem;  /* 18px */
+  --text-body:    1rem;      /* 16px */
+  --text-small:   0.875rem;  /* 14px */
+  --text-caption: 0.75rem;   /* 12px */
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+
+  --weight-regular:  400;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ── Spacing (4px base grid) ─────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ── Layout ──────────────────────────────────── */
+  --max-width-prose:     720px;
+  --max-width-container: 1200px;
+  --max-width-full:      1440px;
+
+  /* ── Borders & Radii ─────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.16);
+
+  /* ── Transitions ─────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* ── Breakpoints (reference only, use in @media) */
+  /* Mobile:  375px  */
+  /* Tablet:  768px  */
+  /* Desktop: 1280px */
+}
