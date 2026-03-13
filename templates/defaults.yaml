@@ -11,12 +11,12 @@ variables:
   fontsize: 11pt
   geometry: margin=2.5cm
   colorlinks: true
-  linkcolor: "009879"
-  urlcolor: "009879"
+  linkcolor: "2D6A4F"
+  urlcolor: "2D6A4F"
   toc: true
   toc-own-page: true
   titlepage: true
-  titlepage-color: "009879"
+  titlepage-color: "2D6A4F"
   titlepage-text-color: "FFFFFF"
   titlepage-rule-color: "FFFFFF"
   titlepage-rule-height: 2
