@@ -9,6 +9,9 @@ const navLinks = [
   { label: tr.nav.about, href: getLocalePath(locale, locale === 'de' ? '/ueber-uns/' : '/about/') },
   { label: tr.nav.news, href: getLocalePath(locale, '/news/') },
   { label: tr.nav.events, href: getLocalePath(locale, '/events/') },
+  { label: tr.nav.gallery, href: getLocalePath(locale, locale === 'de' ? '/galerie/' : '/gallery/') },
+  { label: tr.nav.data, href: getLocalePath(locale, locale === 'de' ? '/daten/' : '/data/') },
+  { label: tr.nav.contact, href: getLocalePath(locale, locale === 'de' ? '/kontakt/' : '/contact/') },
 ];
 ---
 
@@ -35,8 +38,8 @@ const navLinks = [
       <div>
         <h4 class="text-sm font-semibold uppercase tracking-wider mb-3 text-accent">Legal</h4>
         <ul class="space-y-2">
-          <li><a href="#" class="text-sm text-neutral-200 hover:text-accent transition-colors">{tr.footer.imprint}</a></li>
-          <li><a href="#" class="text-sm text-neutral-200 hover:text-accent transition-colors">{tr.footer.privacy}</a></li>
+          <li><a href="/de/impressum/" class="text-sm text-neutral-200 hover:text-accent transition-colors">{tr.footer.imprint}</a></li>
+          <li><a href="/de/datenschutz/" class="text-sm text-neutral-200 hover:text-accent transition-colors">{tr.footer.privacy}</a></li>
         </ul>
       </div>
     </div>

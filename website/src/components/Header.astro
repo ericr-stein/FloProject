@@ -10,6 +10,9 @@ const navLinks = [
   { label: tr.nav.about, href: getLocalePath(locale, locale === 'de' ? '/ueber-uns/' : '/about/') },
   { label: tr.nav.news, href: getLocalePath(locale, '/news/') },
   { label: tr.nav.events, href: getLocalePath(locale, '/events/') },
+  { label: tr.nav.gallery, href: getLocalePath(locale, locale === 'de' ? '/galerie/' : '/gallery/') },
+  { label: tr.nav.data, href: getLocalePath(locale, locale === 'de' ? '/daten/' : '/data/') },
+  { label: tr.nav.contact, href: getLocalePath(locale, locale === 'de' ? '/kontakt/' : '/contact/') },
 ];
 ---
 
@@ -27,7 +30,7 @@ const navLinks = [
     </a>
 
     <!-- Desktop Nav -->
-    <ul class="hidden md:flex items-center gap-6">
+    <ul class="hidden md:flex items-center gap-4 lg:gap-5">
       {navLinks.map(link => (
         <li>
           <a href={link.href} class="text-sm font-medium text-neutral-600 hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">
