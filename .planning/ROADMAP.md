@@ -49,7 +49,9 @@ Plans:
   2. Rahmenbedingungen section covers organizational (FHGR), technical (Docker/Astro), and regulatory conditions
   3. Problem statement articulates a gap in sustainable alpine sports information, and the solution addresses it concretely
   4. HERMES Projektinitialisierungsauftrag and Studie content are embedded naturally in the deliverable
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 02-01-PLAN.md — Review existing content and close HERM-01 gaps (Ressourcenbedarf, Termine, Risiken)
 
 ### Phase 3: Technology & Submission (DEL-A4 to A5)
 **Goal**: Deliverable A is complete, formatted, and submitted as PDF on Moodle
@@ -184,7 +186,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure & PDF Pipeline | 1/1 | Complete | 2026-03-13 |
-| 2. Topic Definition (DEL-A1 to A3) | 0/? | Not started | - |
+| 2. Topic Definition (DEL-A1 to A3) | 0/1 | Planning | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 0/? | Not started | - |
 | 4. Brand Identity | 0/? | Not started | - |
 | 5. Specification Core (DEL-B1 to B3) | 0/? | Not started | - |
