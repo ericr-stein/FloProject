@@ -1,0 +1,35 @@
+---
+import { getLocaleFromUrl } from '../i18n/translations';
+
+const locale = getLocaleFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+// Build path for the other locale
+function switchLocalePath(path: string, from: string, to: string): string {
+  const pathMap: Record<string, string> = {
+    '/de/ueber-uns/': '/en/about/',
+    '/en/about/': '/de/ueber-uns/',
+  };
+  if (pathMap[path]) return pathMap[path];
+  return path.replace(`/${from}/`, `/${to}/`);
+}
+
+const otherLocale = locale === 'de' ? 'en' : 'de';
+const otherPath = switchLocalePath(currentPath, locale, otherLocale);
+---
+
+<div class="flex items-center gap-1 text-sm font-medium">
+  <a
+    href={locale === 'de' ? currentPath : otherPath}
+    class:list={['px-2 py-1 rounded transition-colors', locale === 'de' ? 'bg-primary text-white' : 'text-neutral-600 hover:text-primary']}
+  >
+    DE
+  </a>
+  <span class="text-neutral-400">|</span>
+  <a
+    href={locale === 'en' ? currentPath : otherPath}
+    class:list={['px-2 py-1 rounded transition-colors', locale === 'en' ? 'bg-primary text-white' : 'text-neutral-600 hover:text-primary']}
+  >
+    EN
+  </a>
+</div>
