@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* ── Brand Tokens ─────────────────────────────── */
+@theme {
+  --color-primary: #2D6A4F;
+  --color-primary-light: #52B788;
+  --color-primary-dark: #1B4332;
+  --color-secondary: #264653;
+  --color-secondary-light: #4A90A4;
+  --color-secondary-dark: #1A323D;
+  --color-accent: #E9C46A;
+  --color-accent-light: #F2D98B;
+  --color-accent-dark: #C9A227;
+  --color-success: #40916C;
+  --color-warning: #E76F51;
+  --color-error: #D62828;
+  --color-info: #4A90A4;
+  --color-neutral-50: #F8F9FA;
+  --color-neutral-100: #E9ECEF;
+  --color-neutral-200: #DEE2E6;
+  --color-neutral-400: #ADB5BD;
+  --color-neutral-600: #6C757D;
+  --color-neutral-800: #343A40;
+  --color-neutral-900: #212529;
+  --color-dark-text: #1A1A2E;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ── Base Styles ─────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark-text);
+  background-color: var(--color-neutral-50);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
