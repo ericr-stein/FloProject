@@ -126,7 +126,7 @@ Die folgenden Technologien kommen zum Einsatz:
 **Qualitätssicherung:**
 
 - **Playwright** — Framework für End-to-End-Tests, das die Funktionalität der Webplattform in realen Browserumgebungen (Chromium, Firefox, WebKit) automatisiert überprüft.
-- **Lighthouse CI** — Automatisierte Prüfung der Webperformance, Barrierefreiheit und Best Practices.
+- Ergänzend kann **Lighthouse** zur Prüfung der Webperformance, Barrierefreiheit und Best Practices herangezogen werden.
 
 **Deployment:**
 
