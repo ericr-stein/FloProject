@@ -23,9 +23,9 @@ Requirements for project completion. Each maps to roadmap phases.
 
 ### Deliverable A — Thema/Beschrieb (5%, min. 2 pages, due 16.03.2026)
 
-- [ ] **DEL-A1**: Use Case / Page — Define and describe the GreenSport Graubünden use case, including goals and user value
-- [ ] **DEL-A2**: Rahmenbedingungen — Describe organizational, technical, and regulatory conditions influencing the use case
-- [ ] **DEL-A3**: Problemstellung & Lösung — Present the central problem and the planned website solution
+- [x] **DEL-A1**: Use Case / Page — Define and describe the GreenSport Graubünden use case, including goals and user value
+- [x] **DEL-A2**: Rahmenbedingungen — Describe organizational, technical, and regulatory conditions influencing the use case
+- [x] **DEL-A3**: Problemstellung & Lösung — Present the central problem and the planned website solution
 - [ ] **DEL-A4**: Geplanter Technologie-Einsatz — Describe chosen technology (Astro, Docker, etc.) with justified rationale
 - [ ] **DEL-A5**: PDF formatted in German academic tone, min. 2 DIN A4 pages, submitted as PDF
 
@@ -80,8 +80,8 @@ Requirements for project completion. Each maps to roadmap phases.
 
 ### HERMES Project Management
 
-- [ ] **HERM-01**: Projektinitialisierungsauftrag — Project goals, scope, constraints (embedded in Deliverable A)
-- [ ] **HERM-02**: Studie — Solution description and technology variant comparison (embedded in Deliverable A)
+- [x] **HERM-01**: Projektinitialisierungsauftrag — Project goals, scope, constraints (embedded in Deliverable A)
+- [x] **HERM-02**: Studie — Solution description and technology variant comparison (embedded in Deliverable A)
 - [ ] **HERM-03**: Anforderungsspezifikation — Functional and non-functional requirements (core of Deliverable B)
 - [ ] **HERM-04**: Lösungsarchitektur — Technology stack, system structure (core of Deliverable B)
 - [ ] **HERM-05**: Testkonzept — Testing strategy and acceptance criteria (in Deliverable B)
@@ -129,9 +129,9 @@ Deferred to future work. Only if time permits.
 | BRAND-01 | Phase 4 | Pending |
 | BRAND-02 | Phase 4 | Pending |
 | BRAND-03 | Phase 4 | Pending |
-| DEL-A1 | Phase 2 | Pending |
-| DEL-A2 | Phase 2 | Pending |
-| DEL-A3 | Phase 2 | Pending |
+| DEL-A1 | Phase 2 | Complete |
+| DEL-A2 | Phase 2 | Complete |
+| DEL-A3 | Phase 2 | Complete |
 | DEL-A4 | Phase 3 | Pending |
 | DEL-A5 | Phase 3 | Pending |
 | DEL-B1 | Phase 5 | Pending |
@@ -168,8 +168,8 @@ Deferred to future work. Only if time permits.
 | TEST-03 | Phase 11 | Pending |
 | TEST-04 | Phase 11 | Pending |
 | TEST-05 | Phase 11 | Pending |
-| HERM-01 | Phase 2 | Pending |
-| HERM-02 | Phase 2 | Pending |
+| HERM-01 | Phase 2 | Complete |
+| HERM-02 | Phase 2 | Complete |
 | HERM-03 | Phase 5 | Pending |
 | HERM-04 | Phase 6 | Pending |
 | HERM-05 | Phase 6 | Pending |
