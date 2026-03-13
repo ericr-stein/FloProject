@@ -26,8 +26,8 @@ Requirements for project completion. Each maps to roadmap phases.
 - [x] **DEL-A1**: Use Case / Page — Define and describe the GreenSport Graubünden use case, including goals and user value
 - [x] **DEL-A2**: Rahmenbedingungen — Describe organizational, technical, and regulatory conditions influencing the use case
 - [x] **DEL-A3**: Problemstellung & Lösung — Present the central problem and the planned website solution
-- [ ] **DEL-A4**: Geplanter Technologie-Einsatz — Describe chosen technology (Astro, Docker, etc.) with justified rationale
-- [ ] **DEL-A5**: PDF formatted in German academic tone, min. 2 DIN A4 pages, submitted as PDF
+- [x] **DEL-A4**: Geplanter Technologie-Einsatz — Describe chosen technology (Astro, Docker, etc.) with justified rationale
+- [x] **DEL-A5**: PDF formatted in German academic tone, min. 2 DIN A4 pages, submitted as PDF
 
 ### Deliverable B — Spezifikation (20%, min. 10 pages, due 13.04.2026)
 
@@ -132,8 +132,8 @@ Deferred to future work. Only if time permits.
 | DEL-A1 | Phase 2 | Complete |
 | DEL-A2 | Phase 2 | Complete |
 | DEL-A3 | Phase 2 | Complete |
-| DEL-A4 | Phase 3 | Pending |
-| DEL-A5 | Phase 3 | Pending |
+| DEL-A4 | Phase 3 | Complete |
+| DEL-A5 | Phase 3 | Complete |
 | DEL-B1 | Phase 5 | Pending |
 | DEL-B2 | Phase 5 | Pending |
 | DEL-B3 | Phase 5 | Pending |
