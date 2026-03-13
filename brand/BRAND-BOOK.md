@@ -340,3 +340,5 @@ Die Brand-Farben werden in den Eisvogel-Templates wie folgt angewandt:
 ---
 
 *Erstellt für GreenSport Graubünden — FH Graubünden, WINF1, Frühlingssemester 2026*
+
+*Version 1.0 — März 2026*
