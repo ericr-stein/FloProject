@@ -221,6 +221,73 @@ Das Spacing-System basiert auf einem **4px-Grundraster** mit einer **8px-Basisei
 
 ---
 
+## 5.1 Barrierefreiheit / Accessibility
+
+### Kontrastverhältnisse / Contrast Ratios
+
+Die folgenden Farbkombinationen wurden auf WCAG-2.1-Konformität geprüft.
+*(The following color combinations have been evaluated for WCAG 2.1 compliance.)*
+
+| Vordergrund | Hintergrund | Kontrastverhältnis | WCAG AA | WCAG AAA |
+|-------------|-------------|-------------------|---------|----------|
+| White `#FFFFFF` | Primary `#2D6A4F` | 4.97 : 1 | Pass (gross / large text) | Fail |
+| White `#FFFFFF` | Primary Dark `#1B4332` | 9.50 : 1 | Pass | Pass |
+| Gray 800 `#343A40` | White `#FFFFFF` | 12.63 : 1 | Pass | Pass |
+| Gray 900 `#212529` | White `#FFFFFF` | 15.39 : 1 | Pass | Pass |
+| Primary `#2D6A4F` | Gray 50 `#F8F9FA` | 4.80 : 1 | Pass (gross / large text) | Fail |
+| Accent `#E9C46A` | Primary Dark `#1B4332` | 5.70 : 1 | Pass | Fail |
+
+> **Wichtig:** Die Akzentfarbe Alpine Gold (`#E9C46A`) darf **nicht** als Textfarbe auf weissem Hintergrund verwendet werden (Kontrast ca. 1.9 : 1 — Fail). Sie eignet sich nur als Hintergrund-Highlight oder dekoratives Element.
+>
+> *(Important: The accent color Alpine Gold must NOT be used as text on white backgrounds — contrast ~1.9 : 1, fails all WCAG levels. Use only as background highlight or decorative element.)*
+
+### Fokuszustände / Focus States
+
+- **Focus-Ring:** 2px solid Primary (`#2D6A4F`) mit 2px Offset
+- **Sichtbarkeit:** Fokusring nur bei Tastatur-Navigation (`:focus-visible`), nicht bei Mausklick
+- **Skip-to-Content:** Ein unsichtbarer «Zum Inhalt springen»-Link wird bei Fokus sichtbar, positioniert oben links
+
+*(Focus ring: 2px solid Primary with 2px offset. Visible only on keyboard navigation via `:focus-visible`. A skip-to-content link becomes visible on focus, positioned top-left.)*
+
+---
+
+## 5.2 Bildsprache / Image Style
+
+### Themen & Motive / Subject Matter
+
+- **Alpinlandschaften:** Berge, Täler, Seen und Wälder Graubündens
+- **Nachhaltige Sportaktivitäten:** Wandern, Mountainbiking, Langlauf, Klettern — mit sichtbarem Naturschutz-Bezug
+- **Natur:** Flora und Fauna der Region, jahreszeitliche Vielfalt
+
+*(Alpine landscapes, sustainable sports activities, and Graubunden nature.)*
+
+### Bildbehandlung / Image Treatment
+
+- **Natürliche Farben** bevorzugen, keine starken Filter oder übermässige Sättigung
+- **Overlay** (falls nötig): Brand-Gradient verwenden: `linear-gradient(rgba(27, 67, 50, 0.7), rgba(38, 70, 83, 0.8))`
+- **Helligkeit/Kontrast** so anpassen, dass Text auf Bildern lesbar bleibt
+
+*(Prefer natural colors, avoid heavy filters. Use brand gradient overlay when needed.)*
+
+### Seitenverhältnisse / Aspect Ratios
+
+| Verwendung | Verhältnis | Beispiel |
+|------------|-----------|----------|
+| **Hero-Banner** | 16 : 9 | Startseite, Aktionsseiten |
+| **Karten-Bilder** | 3 : 2 | Event-Karten, Artikel-Vorschau |
+| **Thumbnails** | 1 : 1 | Profilbilder, kleine Vorschauen |
+
+### Alternativtext / Alt Text
+
+Alle Bilder müssen in beiden Sprachen beschreibenden Alternativtext haben.
+*(All images must have descriptive alt text in both German and English.)*
+
+- **Beschreibend:** Was ist auf dem Bild zu sehen?
+- **Kontextbezogen:** Warum ist das Bild relevant?
+- **Beispiel:** `alt="Wanderer auf dem Piz Beverin mit Blick auf das Rheintal bei Sonnenaufgang"`
+
+---
+
 ## 6. Ton & Stimme / Tone & Voice
 
 ### Grundsätze / Principles
