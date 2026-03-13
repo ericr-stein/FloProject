@@ -35,7 +35,9 @@
   1. Running `make pdf-a` produces a correctly formatted German PDF with umlauts, page numbers, and ToC
   2. Repository has clear directory structure (deliverables/, website/, brand/, project-management/) with a README hub
   3. Makefile commands exist for PDF building, website running, and test execution (even if website/tests are stubs)
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Verify existing infrastructure against INFRA-01/02/03 requirements
 
 ### Phase 2: Topic Definition (DEL-A1 to A3)
 **Goal**: GreenSport Graubunden use case is fully defined with problem, solution, and context
@@ -181,7 +183,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure & PDF Pipeline | 0/? | Not started | - |
+| 1. Infrastructure & PDF Pipeline | 0/1 | Planning complete | - |
 | 2. Topic Definition (DEL-A1 to A3) | 0/? | Not started | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 0/? | Not started | - |
 | 4. Brand Identity | 0/? | Not started | - |
