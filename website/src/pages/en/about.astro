@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/translations';
+
+const tr = t('en');
+---
+
+<BaseLayout title={tr.about.title} lang="en">
+
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-secondary to-secondary-dark text-white py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">{tr.about.title}</h1>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-16">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-6 text-primary">{tr.about.missionTitle}</h2>
+      <p class="text-lg text-neutral-600 leading-relaxed">{tr.about.missionText}</p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-16 bg-white">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-6 text-primary">{tr.about.storyTitle}</h2>
+      <p class="text-lg text-neutral-600 leading-relaxed">{tr.about.storyText}</p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center">{tr.about.valuesTitle}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {tr.about.values.map((v, i) => (
+          <div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-lg mb-4">{i + 1}</div>
+            <h3 class="text-lg font-bold mb-2">{v.title}</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Organization -->
+  <section class="py-16 bg-white">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-6 text-primary">{tr.about.orgTitle}</h2>
+      <p class="text-lg text-neutral-600 leading-relaxed">{tr.about.orgText}</p>
+    </div>
+  </section>
+
+</BaseLayout>
