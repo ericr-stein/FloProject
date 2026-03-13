@@ -1,0 +1,47 @@
+---
+interface Props {
+  lang: 'de' | 'en';
+}
+const { lang } = Astro.props;
+
+const milestones = lang === 'de' ? [
+  { year: '2015', title: 'Pariser Abkommen', text: 'Globales Klimaabkommen setzt Ziele für den Sport.' },
+  { year: '2018', title: 'UN Sports for Climate Action', text: 'Sportorganisationen verpflichten sich zum Klimaschutz.' },
+  { year: '2020', title: 'LAAX Greenstyle', text: 'Erstes alpines Resort mit umfassendem Nachhaltigkeitsprogramm.' },
+  { year: '2022', title: 'Swiss Ski Charta', text: 'Swiss-Ski verabschiedet Nachhaltigkeitscharta.' },
+  { year: '2024', title: 'Arosa klimaneutral', text: 'Arosa erreicht Klimaneutralitätsziel.' },
+  { year: '2026', title: 'GreenSport Graubünden', text: 'Plattform für nachhaltigen Alpensport gestartet.' },
+] : [
+  { year: '2015', title: 'Paris Agreement', text: 'Global climate agreement sets goals for sports sector.' },
+  { year: '2018', title: 'UN Sports for Climate Action', text: 'Sports organizations commit to climate action.' },
+  { year: '2020', title: 'LAAX Greenstyle', text: 'First alpine resort with comprehensive sustainability program.' },
+  { year: '2022', title: 'Swiss Ski Charter', text: 'Swiss-Ski adopts sustainability charter.' },
+  { year: '2024', title: 'Arosa Carbon Neutral', text: 'Arosa reaches carbon neutrality goal.' },
+  { year: '2026', title: 'GreenSport Graubünden', text: 'Platform for sustainable alpine sports launched.' },
+];
+---
+
+<div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+  <h3 class="text-xl font-bold mb-8">{lang === 'de' ? 'Nachhaltigkeits-Meilensteine' : 'Sustainability Milestones'}</h3>
+
+  <div class="relative">
+    <!-- Horizontal line -->
+    <div class="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-primary/20"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-4">
+      {milestones.map((m, i) => (
+        <div class="relative text-center">
+          <div class="hidden md:flex w-12 h-12 rounded-full bg-primary text-white items-center justify-center text-sm font-bold mx-auto relative z-10">
+            {m.year}
+          </div>
+          <div class="md:hidden flex items-center gap-3 mb-1">
+            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0">{m.year}</div>
+            <h4 class="font-bold text-sm">{m.title}</h4>
+          </div>
+          <h4 class="hidden md:block font-bold text-sm mt-3">{m.title}</h4>
+          <p class="text-xs text-neutral-600 mt-1 md:px-1">{m.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

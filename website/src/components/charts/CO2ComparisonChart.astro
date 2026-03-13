@@ -1,0 +1,42 @@
+---
+interface Props {
+  lang: 'de' | 'en';
+}
+const { lang } = Astro.props;
+const title = lang === 'de' ? 'CO₂-Emissionen im Vergleich' : 'CO₂ Emissions Comparison';
+const subtitle = lang === 'de' ? 'Tonnen CO₂ pro Veranstaltung' : 'Tonnes CO₂ per Event';
+---
+
+<div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+  <h3 class="text-xl font-bold mb-1">{title}</h3>
+  <p class="text-sm text-neutral-600 mb-6">{subtitle}</p>
+  <canvas id="co2-chart" class="w-full" style="max-height:400px;"></canvas>
+</div>
+
+<script>
+  import { Chart, BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+  Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+  const ctx = document.getElementById('co2-chart') as HTMLCanvasElement;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Engadin Skimarathon', 'LAAX Open', 'Arosa Bikefest', 'Davos Nordic', 'St. Moritz Snow Polo', 'Lenzerheide Biathlon'],
+      datasets: [{
+        label: 'CO₂ (t)',
+        data: [45, 120, 35, 60, 180, 50],
+        backgroundColor: ['#2D6A4F', '#264653', '#E9C46A', '#8AB17D', '#E76F51', '#2D6A4F'],
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: '#E9ECEF' } },
+        x: { grid: { display: false }, ticks: { maxRotation: 45, minRotation: 20 } }
+      }
+    }
+  });
+</script>

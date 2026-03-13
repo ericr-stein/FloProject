@@ -1,0 +1,68 @@
+---
+interface Props {
+  lang: 'de' | 'en';
+}
+const { lang } = Astro.props;
+const title = lang === 'de' ? 'Green Score Vergleich' : 'Green Score Comparison';
+const labelsDE = ['Energie', 'Abfall', 'Transport', 'Wasser', 'Biodiversität'];
+const labelsEN = ['Energy', 'Waste', 'Transport', 'Water', 'Biodiversity'];
+---
+
+<div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+  <h3 class="text-xl font-bold mb-1">{title}</h3>
+  <p class="text-sm text-neutral-600 mb-6">{lang === 'de' ? 'Nachhaltigkeitsdimensionen im Vergleich' : 'Sustainability dimensions compared'}</p>
+  <canvas id="radar-chart" class="w-full" style="max-height:400px;"></canvas>
+</div>
+
+<script define:vars={{ labelsDE, labelsEN, lang }}>
+  // Vars passed from Astro, chart initialized below
+</script>
+
+<script>
+  import { Chart, RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
+  Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+
+  const isDE = document.documentElement.lang === 'de';
+  const labels = isDE
+    ? ['Energie', 'Abfall', 'Transport', 'Wasser', 'Biodiversität']
+    : ['Energy', 'Waste', 'Transport', 'Water', 'Biodiversity'];
+
+  const ctx = document.getElementById('radar-chart') as HTMLCanvasElement;
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'LAAX',
+          data: [85, 78, 60, 72, 90],
+          borderColor: '#2D6A4F',
+          backgroundColor: 'rgba(45,106,79,0.15)',
+          pointBackgroundColor: '#2D6A4F',
+        },
+        {
+          label: 'Arosa Lenzerheide',
+          data: [70, 85, 75, 80, 65],
+          borderColor: '#E9C46A',
+          backgroundColor: 'rgba(233,196,106,0.15)',
+          pointBackgroundColor: '#E9C46A',
+        },
+        {
+          label: 'Davos',
+          data: [60, 65, 80, 55, 70],
+          borderColor: '#264653',
+          backgroundColor: 'rgba(38,70,83,0.15)',
+          pointBackgroundColor: '#264653',
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        r: { beginAtZero: true, max: 100, ticks: { stepSize: 20, display: false }, grid: { color: '#DEE2E6' }, pointLabels: { font: { size: 12 } } }
+      },
+      plugins: { legend: { position: 'bottom' } }
+    }
+  });
+</script>

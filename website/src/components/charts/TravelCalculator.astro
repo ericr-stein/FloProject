@@ -1,0 +1,91 @@
+---
+interface Props {
+  lang: 'de' | 'en';
+}
+const { lang } = Astro.props;
+const title = lang === 'de' ? 'Anreise CO₂-Rechner' : 'Travel CO₂ Calculator';
+const originLabel = lang === 'de' ? 'Startort' : 'Origin';
+const eventLabel = lang === 'de' ? 'Zielort / Event' : 'Destination / Event';
+const btnLabel = lang === 'de' ? 'Berechnen' : 'Calculate';
+---
+
+<div class="bg-white rounded-xl shadow-sm border border-neutral-200 p-6">
+  <h3 class="text-xl font-bold mb-1">{title}</h3>
+  <p class="text-sm text-neutral-600 mb-6">{lang === 'de' ? 'Vergleiche CO₂-Emissionen verschiedener Verkehrsmittel' : 'Compare CO₂ emissions of different transport modes'}</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+    <div>
+      <label class="block text-sm font-medium mb-1">{originLabel}</label>
+      <select id="calc-origin" class="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary">
+        <option value="zurich">Zürich</option>
+        <option value="bern">Bern</option>
+        <option value="basel">Basel</option>
+        <option value="genf">Genf / Geneva</option>
+        <option value="lugano">Lugano</option>
+        <option value="muenchen">München / Munich</option>
+        <option value="mailand">Mailand / Milan</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-1">{eventLabel}</label>
+      <select id="calc-dest" class="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary">
+        <option value="davos">Davos</option>
+        <option value="laax">LAAX</option>
+        <option value="arosa">Arosa</option>
+        <option value="stmoritz">St. Moritz</option>
+        <option value="lenzerheide">Lenzerheide</option>
+        <option value="engadin">Engadin</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="calc-btn" class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors mb-6">{btnLabel}</button>
+
+  <div id="calc-results" class="hidden">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="text-center p-4 rounded-lg bg-warning/10 border border-warning/20">
+        <p class="text-2xl font-bold text-warning" id="res-car">--</p>
+        <p class="text-xs text-neutral-600 mt-1">{lang === 'de' ? 'Auto' : 'Car'} (kg CO₂)</p>
+      </div>
+      <div class="text-center p-4 rounded-lg bg-primary/10 border border-primary/20">
+        <p class="text-2xl font-bold text-primary" id="res-train">--</p>
+        <p class="text-xs text-neutral-600 mt-1">{lang === 'de' ? 'Zug' : 'Train'} (kg CO₂)</p>
+      </div>
+      <div class="text-center p-4 rounded-lg bg-secondary/10 border border-secondary/20">
+        <p class="text-2xl font-bold text-secondary" id="res-bus">--</p>
+        <p class="text-xs text-neutral-600 mt-1">Bus (kg CO₂)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Distances in km (approximate)
+  const distances: Record<string, Record<string, number>> = {
+    zurich: { davos: 150, laax: 140, arosa: 150, stmoritz: 200, lenzerheide: 140, engadin: 210 },
+    bern: { davos: 230, laax: 220, arosa: 230, stmoritz: 280, lenzerheide: 220, engadin: 290 },
+    basel: { davos: 250, laax: 240, arosa: 250, stmoritz: 300, lenzerheide: 240, engadin: 310 },
+    genf: { davos: 400, laax: 390, arosa: 400, stmoritz: 450, lenzerheide: 390, engadin: 460 },
+    lugano: { davos: 200, laax: 190, arosa: 210, stmoritz: 180, lenzerheide: 200, engadin: 190 },
+    muenchen: { davos: 280, laax: 290, arosa: 300, stmoritz: 340, lenzerheide: 290, engadin: 350 },
+    mailand: { davos: 280, laax: 270, arosa: 290, stmoritz: 250, lenzerheide: 280, engadin: 260 },
+  };
+
+  // g CO2 per km per passenger
+  const factors = { car: 170, train: 30, bus: 60 };
+
+  document.getElementById('calc-btn')?.addEventListener('click', () => {
+    const origin = (document.getElementById('calc-origin') as HTMLSelectElement).value;
+    const dest = (document.getElementById('calc-dest') as HTMLSelectElement).value;
+    const dist = distances[origin]?.[dest] || 200;
+
+    const car = ((dist * factors.car) / 1000).toFixed(1);
+    const train = ((dist * factors.train) / 1000).toFixed(1);
+    const bus = ((dist * factors.bus) / 1000).toFixed(1);
+
+    document.getElementById('res-car')!.textContent = car;
+    document.getElementById('res-train')!.textContent = train;
+    document.getElementById('res-bus')!.textContent = bus;
+    document.getElementById('calc-results')!.classList.remove('hidden');
+  });
+</script>

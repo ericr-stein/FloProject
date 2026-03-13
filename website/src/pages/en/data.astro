@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CO2ComparisonChart from '../../components/charts/CO2ComparisonChart.astro';
+import GreenScoreRadar from '../../components/charts/GreenScoreRadar.astro';
+import TravelCalculator from '../../components/charts/TravelCalculator.astro';
+import SustainabilityTimeline from '../../components/charts/SustainabilityTimeline.astro';
+import { t } from '../../i18n/translations';
+
+const tr = t('en');
+---
+
+<BaseLayout title={tr.nav.data} lang="en">
+
+  <section class="bg-gradient-to-r from-secondary to-secondary-dark text-white py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">{tr.nav.data}</h1>
+      <p class="mt-4 text-lg text-neutral-200">Transparent sustainability data from Alpine sports in Graubünden</p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white border-b border-neutral-200">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl font-bold text-primary">12</p>
+          <p class="text-sm text-neutral-600">Events Analyzed</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-primary">490 t</p>
+          <p class="text-sm text-neutral-600">CO₂ Tracked</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-primary">5</p>
+          <p class="text-sm text-neutral-600">Regions</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-primary">32%</p>
+          <p class="text-sm text-neutral-600">Reduction Potential</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <CO2ComparisonChart lang="en" />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-[900px] mx-auto px-4 sm:px-6">
+      <GreenScoreRadar lang="en" />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-[800px] mx-auto px-4 sm:px-6">
+      <TravelCalculator lang="en" />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <SustainabilityTimeline lang="en" />
+    </div>
+  </section>
+
+</BaseLayout>
