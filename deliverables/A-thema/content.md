@@ -30,6 +30,12 @@ Gemäss der HERMES-Projektmanagement-Methodik des Bundes wird das Projekt wie fo
 
 **Projektfreigabe:** Das Projekt wird im Rahmen des Moduls WINF1 an der Fachhochschule Graubünden unter der Leitung von Prof. Oliver Engelbrecht durchgeführt. Die Freigabe erfolgt durch die Annahme des Projektantrags durch den Dozenten.
 
+**Ressourcenbedarf:** Das Projekt wird von einer Einzelperson durchgeführt, die sämtliche Rollen — von der Konzeption über die Entwicklung bis zur Dokumentation — in Personalunion übernimmt. Als Entwicklungswerkzeuge kommen ausschliesslich Open-Source-Technologien zum Einsatz (Astro, Tailwind CSS, Docker, Pandoc), wodurch keine finanziellen Ressourcen für Softwarelizenzen anfallen. Die erforderliche Hardware beschränkt sich auf einen handelsüblichen Laptop mit Internetzugang.
+
+**Termine:** Die Projektdurchführung folgt dem Semesterzeitplan des Frühlingssemesters 2026 mit vier verbindlichen Abgabeterminen: Deliverable A (Thema und Beschrieb) am 16. März 2026, Deliverable B (Spezifikation) am 13. April 2026, Deliverable C (Wireframes) am 27. April 2026 sowie Deliverable D (Website und Dokumentation) am 18. Mai 2026. Die inkrementelle Abgabestruktur ermöglicht eine kontinuierliche Fortschrittskontrolle und frühzeitiges Feedback durch den Dozenten.
+
+**Risiken:** Als wesentliche Projektrisiken sind zu nennen: (1) der Zeitdruck durch die parallele Bearbeitung weiterer Module neben dem Projektmodul, (2) das Einzelpersonenrisiko, da bei Ausfall der einzigen Projektbeteiligten keine Stellvertretung besteht, sowie (3) die technische Komplexität der zweisprachigen Umsetzung mit interaktiven Datenvisualisierungen. Diesen Risiken wird durch eine strikte Priorisierung der Kernfunktionalitäten, frühzeitige Prototypenentwicklung und den konsequenten Einsatz bewährter Open-Source-Bibliotheken begegnet.
+
 # Rahmenbedingungen
 
 ## Organisatorische Rahmenbedingungen
