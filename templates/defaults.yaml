@@ -1,0 +1,30 @@
+---
+# Pandoc defaults for GreenSport Graubünden deliverables
+from: markdown+yaml_metadata_block+implicit_figures+table_captions+footnotes
+to: pdf
+pdf-engine: xelatex
+template: eisvogel
+standalone: true
+
+variables:
+  lang: de
+  fontsize: 11pt
+  geometry: margin=2.5cm
+  colorlinks: true
+  linkcolor: "009879"
+  urlcolor: "009879"
+  toc: true
+  toc-own-page: true
+  titlepage: true
+  titlepage-color: "009879"
+  titlepage-text-color: "FFFFFF"
+  titlepage-rule-color: "FFFFFF"
+  titlepage-rule-height: 2
+  header-left: "GreenSport Graubünden"
+  footer-left: "FH Graubünden — WINF1"
+  mainfont: "DejaVu Serif"
+  sansfont: "DejaVu Sans"
+  monofont: "DejaVu Sans Mono"
+  numbersections: true
+  book: false
+  classoption: oneside
