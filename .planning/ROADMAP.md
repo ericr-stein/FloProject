@@ -90,7 +90,9 @@ Plans:
   2. Target audience analysis identifies primary and secondary users with personas, positioning, and measurable KPIs
   3. Sitemap and content plan cover all pages with tonality guidelines, storytelling approach, and DE/EN multilingual strategy
   4. HERMES Anforderungsspezifikation (functional and non-functional requirements) is embedded in the specification
-**Plans:** [To be planned]
+**Plans:** 1 plan
+Plans:
+- [ ] 05-01-PLAN.md — Audit existing content, fix FA-012/Lighthouse inconsistencies, verify PDF build
 
 ### Phase 6: Specification Technical (DEL-B4 to B7)
 **Goal**: Deliverable B is complete with technical spec, UX guidelines, project plan, and submitted as PDF
@@ -192,7 +194,7 @@ Plans:
 | 2. Topic Definition (DEL-A1 to A3) | 0/1 | Planning | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 1/1 | Complete   | 2026-03-13 |
 | 4. Brand Identity | 0/1 | Planning | - |
-| 5. Specification Core (DEL-B1 to B3) | 0/? | Not started | - |
+| 5. Specification Core (DEL-B1 to B3) | 0/1 | Planning | - |
 | 6. Specification Technical (DEL-B4 to B7) | 0/? | Not started | - |
 | 7. Wireframes & Layout (DEL-C1 to C3) | 0/? | Not started | - |
 | 8. Wireframes Completion (DEL-C4 to C5) | 0/? | Not started | - |
