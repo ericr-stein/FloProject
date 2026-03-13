@@ -40,9 +40,12 @@ website:
 	docker compose up -d website
 
 # ─── Tests ────────────────────────────────────────────────────
-.PHONY: test
+.PHONY: test test-local
 test:
-	@echo "Tests: noch nicht implementiert. Playwright-Tests folgen in Phase 3."
+	docker compose run --rm tests
+
+test-local:
+	cd website && npx playwright test
 
 # ─── Docker ───────────────────────────────────────────────────
 .PHONY: docker-up docker-down
@@ -70,7 +73,8 @@ help:
 	@echo "  make pdf-d      Deliverable D bauen"
 	@echo "  make pdfs       Alle Deliverables bauen"
 	@echo "  make website    Website starten"
-	@echo "  make test       Tests ausführen"
+	@echo "  make test       Tests in Docker ausführen"
+	@echo "  make test-local Tests lokal ausführen"
 	@echo "  make docker-up  Docker starten"
 	@echo "  make docker-down Docker stoppen"
 	@echo "  make clean      Output-Ordner löschen"
