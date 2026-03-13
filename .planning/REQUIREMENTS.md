@@ -31,9 +31,9 @@ Requirements for project completion. Each maps to roadmap phases.
 
 ### Deliverable B — Spezifikation (20%, min. 10 pages, due 13.04.2026)
 
-- [ ] **DEL-B1**: Projektübersicht & Ziele — Overview of starting position, goals, project scope, and key definitions
-- [ ] **DEL-B2**: Strategie & Zielgruppen — Target audience analysis, positioning, communication goals, and KPIs
-- [ ] **DEL-B3**: Content & Seitenstruktur — Sitemap, content plan, tonality, storytelling, multilingual approach (DE/EN)
+- [x] **DEL-B1**: Projektübersicht & Ziele — Overview of starting position, goals, project scope, and key definitions
+- [x] **DEL-B2**: Strategie & Zielgruppen — Target audience analysis, positioning, communication goals, and KPIs
+- [x] **DEL-B3**: Content & Seitenstruktur — Sitemap, content plan, tonality, storytelling, multilingual approach (DE/EN)
 - [ ] **DEL-B4**: Funktionen & Technik — Core functions, interactions, interfaces, CMS approach, hosting, security, SEO
 - [ ] **DEL-B5**: Design & Nutzererfahrung (UX/UI) — Navigation guidelines, responsive design, accessibility, visual design principles
 - [ ] **DEL-B6**: Projektsteuerung & Betrieb — HERMES milestones, timeline, responsibilities, acceptance criteria, testing, go-live, maintenance
@@ -82,7 +82,7 @@ Requirements for project completion. Each maps to roadmap phases.
 
 - [x] **HERM-01**: Projektinitialisierungsauftrag — Project goals, scope, constraints (embedded in Deliverable A)
 - [x] **HERM-02**: Studie — Solution description and technology variant comparison (embedded in Deliverable A)
-- [ ] **HERM-03**: Anforderungsspezifikation — Functional and non-functional requirements (core of Deliverable B)
+- [x] **HERM-03**: Anforderungsspezifikation — Functional and non-functional requirements (core of Deliverable B)
 - [ ] **HERM-04**: Lösungsarchitektur — Technology stack, system structure (core of Deliverable B)
 - [ ] **HERM-05**: Testkonzept — Testing strategy and acceptance criteria (in Deliverable B)
 - [ ] **HERM-06**: Projektmanagementplan — Timeline, milestones, resources (in Deliverable B)
@@ -134,9 +134,9 @@ Deferred to future work. Only if time permits.
 | DEL-A3 | Phase 2 | Complete |
 | DEL-A4 | Phase 3 | Complete |
 | DEL-A5 | Phase 3 | Complete |
-| DEL-B1 | Phase 5 | Pending |
-| DEL-B2 | Phase 5 | Pending |
-| DEL-B3 | Phase 5 | Pending |
+| DEL-B1 | Phase 5 | Complete |
+| DEL-B2 | Phase 5 | Complete |
+| DEL-B3 | Phase 5 | Complete |
 | DEL-B4 | Phase 6 | Pending |
 | DEL-B5 | Phase 6 | Pending |
 | DEL-B6 | Phase 6 | Pending |
@@ -170,7 +170,7 @@ Deferred to future work. Only if time permits.
 | TEST-05 | Phase 11 | Pending |
 | HERM-01 | Phase 2 | Complete |
 | HERM-02 | Phase 2 | Complete |
-| HERM-03 | Phase 5 | Pending |
+| HERM-03 | Phase 5 | Complete |
 | HERM-04 | Phase 6 | Pending |
 | HERM-05 | Phase 6 | Pending |
 | HERM-06 | Phase 6 | Pending |

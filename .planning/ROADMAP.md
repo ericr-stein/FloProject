@@ -13,7 +13,7 @@
 - [ ] **Phase 2: Topic Definition (DEL-A1 to A3)** - Research GreenSport Graubunden use case, Rahmenbedingungen, and Problemstellung
 - [x] **Phase 3: Technology & Submission (DEL-A4 to A5)** - Technology rationale, HERMES init artifacts, and Deliverable A PDF submission (completed 2026-03-13)
 - [ ] **Phase 4: Brand Identity** - Create complete brand book with colors, typography, logo, and component patterns
-- [ ] **Phase 5: Specification Core (DEL-B1 to B3)** - Projektuebersicht, Strategie/Zielgruppen, and Content/Seitenstruktur
+- [x] **Phase 5: Specification Core (DEL-B1 to B3)** - Projektuebersicht, Strategie/Zielgruppen, and Content/Seitenstruktur (completed 2026-03-13)
 - [ ] **Phase 6: Specification Technical (DEL-B4 to B7)** - Funktionen/Technik, UX/UI design, Projektsteuerung, and Deliverable B PDF submission
 - [ ] **Phase 7: Wireframes & Layout (DEL-C1 to C3)** - Project context, wireframes for all pages, and user flow / interaction concept
 - [ ] **Phase 8: Wireframes Completion (DEL-C4 to C5)** - Summary/recommendations, Docker skeleton, and Deliverable C PDF submission
@@ -90,7 +90,7 @@ Plans:
   2. Target audience analysis identifies primary and secondary users with personas, positioning, and measurable KPIs
   3. Sitemap and content plan cover all pages with tonality guidelines, storytelling approach, and DE/EN multilingual strategy
   4. HERMES Anforderungsspezifikation (functional and non-functional requirements) is embedded in the specification
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 Plans:
 - [ ] 05-01-PLAN.md — Audit existing content, fix FA-012/Lighthouse inconsistencies, verify PDF build
 
@@ -194,7 +194,7 @@ Plans:
 | 2. Topic Definition (DEL-A1 to A3) | 0/1 | Planning | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 1/1 | Complete   | 2026-03-13 |
 | 4. Brand Identity | 0/1 | Planning | - |
-| 5. Specification Core (DEL-B1 to B3) | 0/1 | Planning | - |
+| 5. Specification Core (DEL-B1 to B3) | 1/1 | Complete   | 2026-03-13 |
 | 6. Specification Technical (DEL-B4 to B7) | 0/? | Not started | - |
 | 7. Wireframes & Layout (DEL-C1 to C3) | 0/? | Not started | - |
 | 8. Wireframes Completion (DEL-C4 to C5) | 0/? | Not started | - |
