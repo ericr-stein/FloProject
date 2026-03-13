@@ -858,9 +858,286 @@ Diese Traceability-Matrix stellt sicher, dass jedes strategische Ziel durch mind
 
 \newpage
 
+# Funktionen und Technik
+
+Dieses Kapitel beschreibt die technische Umsetzung der Plattform GreenSport Graubünden im Detail. Es umfasst die Kernfunktionen, das Interaktionskonzept, die Lösungsarchitektur gemäss HERMES sowie die Hosting-, Sicherheits- und SEO-Strategie.
+
+## Kernfunktionen
+
+Die Webplattform bietet folgende zentrale Funktionalitäten, die unmittelbar auf die in Kapitel 1 definierten strategischen Ziele einzahlen:
+
+### Interaktive Datenvisualisierungen
+
+Die Datenseite bildet das analytische Herzstück der Plattform. Mittels **Chart.js** (Version 4.x) werden drei Visualisierungstypen als sogenannte Island-Komponenten realisiert — das heisst, sie laden JavaScript nur dann, wenn die entsprechende Komponente im Viewport des Nutzenden sichtbar wird:
+
+- **CO₂-Vergleichsdiagramme** (Bar Charts): Horizontale Balkendiagramme, die den CO₂-Ausstoss verschiedener Veranstaltungen gegenüberstellen. Die Farbgebung folgt der Fünf-Farben-Serie des Brand Books (Alpine Green, Mountain Blue, Alpine Gold, Meadow Green, Terracotta). Hover-Tooltips zeigen die exakten Werte in Tonnen CO₂-Äquivalenten an.
+
+- **Green-Score-Radardiagramme** (Radar Charts): Mehrdimensionale Darstellung der Nachhaltigkeitsbewertung einzelner Events entlang der Kategorien Energie, Mobilität, Abfall, Wasser und Biodiversität. Durch Overlay-Funktion können bis zu drei Veranstaltungen gleichzeitig verglichen werden.
+
+- **Anreise-Rechner** (Interaktives Tool): Ein formularbasierter Rechner, der die CO₂-Emissionen verschiedener Anreisemodi (Auto, Zug, Bus, Flugzeug) zu einer ausgewählten Veranstaltung berechnet und als Donut-Chart visualisiert. Die Berechnung erfolgt clientseitig mittels hinterlegter Emissionsfaktoren gemäss BAFU-Datenbank.
+
+### Zweisprachige Inhaltsbereitstellung
+
+Die Plattform unterstützt Deutsch und Englisch als gleichberechtigte Sprachen. Die technische Umsetzung erfolgt über das integrierte i18n-Routing von Astro mit sprachspezifischen URL-Präfixen:
+
+| Sprache | URL-Präfix | Beispiel |
+|---|---|---|
+| Deutsch (Standard) | `/de/` | `/de/daten` |
+| Englisch | `/en/` | `/en/data` |
+
+Die Sprachumschaltung erfolgt über eine prominente Komponente im Header, die den aktuellen Seitenkontext beibehält (d.h. ein Wechsel von `/de/events` führt direkt zu `/en/events`).
+
+### Responsive Bildergalerie mit Lightbox
+
+Die Galerie-Seite präsentiert Foto- und Videoinhalte in einem responsiven Masonry-Grid. Bilder werden bei Klick in einer Lightbox mit folgenden Funktionen geöffnet:
+
+- Vollbildansicht mit dunklem Overlay
+- Navigation über Pfeiltasten (←/→) und Swipe-Gesten
+- Schliessen über Escape-Taste oder Klick ausserhalb
+- Bildunterschrift mit Veranstaltungsname und Datum
+- Videoeinbettung via YouTube/Vimeo-Embeds mit Lazy Loading
+
+### News und Blog
+
+Der Blog-Bereich verwendet Astros **Content Collections** für die strukturierte Verwaltung von Artikeln. Jeder Artikel wird als Markdown-Datei mit Frontmatter-Metadaten (Titel, Datum, Autor, Kategorie, Beschreibung, Vorschaubild) gespeichert. Die Listenansicht sortiert Artikel absteigend nach Erscheinungsdatum und bietet Filtermöglichkeiten nach Kategorie.
+
+### Event-Auflistung mit Filterung
+
+Die Events-Seite aggregiert alle erfassten Sportveranstaltungen und bietet:
+
+- Umschaltung zwischen **kommende** und **vergangene** Veranstaltungen
+- Filterung nach Sportart, Region und Green-Score-Kategorie
+- Kartendarstellung (statische Karte) der Veranstaltungsorte
+- Detailansicht pro Event mit allen Nachhaltigkeitskennzahlen
+
+## Interaktionskonzept
+
+Das Interaktionsdesign definiert, wie Nutzende mit den einzelnen Seitenbereichen interagieren. Es orientiert sich an den Bedürfnissen der in Kapitel 2 definierten Personas.
+
+### Navigationsmuster
+
+Die globale Navigation folgt einem bewährten Muster für informationsorientierte Webplattformen:
+
+- **Sticky Header:** Der Header bleibt beim Scrollen sichtbar und bietet jederzeit Zugang zur Navigation, Sprachumschaltung und Logo-Verlinkung zur Startseite.
+- **Hamburger-Menü (Mobile):** Auf Bildschirmen unter 768px Breite wird die Navigation in ein ausklappbares Menü mit Slide-in-Animation komprimiert.
+- **Breadcrumbs:** Auf Unterseiten wird eine Brotkrümelnavigation unterhalb des Headers angezeigt, die den hierarchischen Pfad zur aktuellen Seite darstellt (z.B. *Home > Events > Engadin Skimarathon*).
+
+### Datenseite — Interaktionen
+
+Die Datenseite als interaktivste Seite der Plattform bietet folgende Interaktionsmöglichkeiten:
+
+| Element | Interaktion | Feedback |
+|---|---|---|
+| Diagramm-Filter | Dropdown-Auswahl (Sportart, Region, Jahr) | Chart aktualisiert sich animiert |
+| Hover auf Datenpunkt | Mauszeiger über Bar/Punkt | Tooltip mit exaktem Wert und Label |
+| Vergleichsmodus | Toggle-Button aktivieren | Zweites Dataset wird als Overlay eingeblendet |
+| Anreise-Rechner | Formular ausfüllen (Start, Ziel, Modus) | Donut-Chart und Textausgabe in Echtzeit |
+| Vollbildansicht | Klick auf Expand-Icon | Chart wird im Modal vollformatig dargestellt |
+
+### Galerie — Interaktionen
+
+- **Bildergalerie:** Klick öffnet Lightbox; Tastaturnavigation (←, →, Escape); Swipe auf Touch-Geräten
+- **Videoinhalte:** Klick auf Vorschaubild startet eingebetteten Player; kein Autoplay
+
+### Kontakt — Interaktionen
+
+Da es sich um eine statische Website ohne Backend handelt, erfolgt die Kontaktaufnahme über:
+
+- **Mailto-Links:** Vorkonfigurierte E-Mail-Links mit Betreff-Zeile
+- **Social-Media-Links:** Externe Verlinkung zu relevanten Kanälen
+- **Standortkarte:** Eingebettete statische Karte (kein Google Maps API)
+
+## Lösungsarchitektur (HERMES HERM-04)
+
+Die Lösungsarchitektur beschreibt den technischen Aufbau der Plattform, die Komponentenstruktur und die Deployment-Pipeline. Als statische Website verfolgt GreenSport Graubünden das Prinzip der maximalen Einfachheit bei minimaler Angriffsfläche.
+
+### Architekturübersicht
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    BUILD-PHASE (CI/CD)                       │
+│                                                             │
+│  Astro-Quellcode  ──►  npm run build  ──►  dist/           │
+│  (src/, content/)       (SSG-Prozess)      (statisches      │
+│                                             HTML/CSS/JS)    │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                DOCKER MULTI-STAGE BUILD                      │
+│                                                             │
+│  Stage 1: node:22-alpine                                    │
+│    → npm ci && npm run build                                │
+│                                                             │
+│  Stage 2: nginx:alpine                                      │
+│    → COPY dist/ → /usr/share/nginx/html/                    │
+│    → Custom nginx.conf (Security Headers, Caching)          │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  AUSLIEFERUNG (Runtime)                      │
+│                                                             │
+│  Docker Container (nginx:alpine)  ◄───  Port 8080           │
+│    │                                                        │
+│    ├── /de/index.html (Startseite DE)                       │
+│    ├── /en/index.html (Startseite EN)                       │
+│    ├── /de/daten/index.html                                 │
+│    ├── /assets/ (CSS, JS-Bundles, Bilder)                   │
+│    └── /sitemap.xml                                         │
+│                                                             │
+│  Browser des Nutzenden  ◄───  HTTPS  ◄───  nginx           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Komponentendiagramm
+
+Die Astro-Applikation gliedert sich in folgende Hauptkomponenten:
+
+```
+src/
+├── layouts/
+│   ├── BaseLayout.astro          # HTML-Grundgerüst, Head, Meta-Tags
+│   └── PageLayout.astro          # Seitenlayout mit Header/Footer
+├── components/
+│   ├── Header.astro              # Navigation, Logo, Sprachwechsel
+│   ├── Footer.astro              # Sitemap-Links, Social Icons
+│   ├── LanguageSwitcher.astro    # DE/EN-Umschalter
+│   ├── charts/
+│   │   ├── CO2Chart.astro        # Island: CO₂-Balkendiagramm
+│   │   ├── RadarChart.astro      # Island: Green-Score-Radar
+│   │   └── TravelCalculator.astro # Island: Anreise-Rechner
+│   ├── gallery/
+│   │   ├── GalleryGrid.astro     # Responsive Masonry-Grid
+│   │   └── Lightbox.astro        # Island: Lightbox-Overlay
+│   └── ui/
+│       ├── Card.astro            # Wiederverwendbare Karte
+│       ├── Badge.astro           # Kategorie-/Score-Badge
+│       └── Breadcrumbs.astro     # Brotkrümelnavigation
+├── content/
+│   ├── blog/de/                  # Blog-Artikel (DE)
+│   ├── blog/en/                  # Blog-Artikel (EN)
+│   ├── events/de/                # Event-Daten (DE)
+│   └── events/en/                # Event-Daten (EN)
+├── pages/
+│   ├── de/                       # Deutsche Seitenrouten
+│   └── en/                       # Englische Seitenrouten
+├── i18n/
+│   ├── de.json                   # Deutsche UI-Strings
+│   └── en.json                   # Englische UI-Strings
+└── styles/
+    └── global.css                # Tailwind-Basis + Custom Properties
+```
+
+### Technologie-Stack
+
+| Technologie | Version | Rolle | Begründung |
+|---|---|---|---|
+| **Astro** | 5.x | Static Site Generator | Zero-JS-Default, optimale Performance, integriertes i18n, Content Collections |
+| **Tailwind CSS** | 4.x | Utility-First CSS | Konsistentes Design, kleine Bundle-Grösse, Responsive-Utilities |
+| **Chart.js** | 4.x | Datenvisualisierung | Leichtgewichtig (~60 KB gzipped), responsive, barrierefreie Charts |
+| **TypeScript** | 5.x | Typsicherheit | Fehlerprävention, bessere IDE-Unterstützung, Dokumentation |
+| **Node.js** | 22 LTS | Build-Umgebung | Astro-Voraussetzung, Long-Term-Support bis April 2027 |
+| **Docker** | 27.x | Containerisierung | Reproduzierbare Builds, einfaches Deployment, Isolation |
+| **nginx** | 1.27 (alpine) | Webserver | Performant, geringer Ressourcenverbrauch, bewährte Sicherheit |
+| **Playwright** | 1.49 | E2E-Tests | Cross-Browser-Testing, zuverlässige Assertions, Screenshot-Tests |
+| **Prettier** | 3.x | Code-Formatierung | Konsistenter Code-Stil, automatische Formatierung |
+| **ESLint** | 9.x | Linting | Fehlererkennung, Best Practices, TypeScript-Integration |
+
+### Deployment-Architektur
+
+Das Deployment erfolgt über Docker Compose mit einem einzelnen Container:
+
+```yaml
+# docker-compose.yml (vereinfacht)
+services:
+  greensport-web:
+    build: .
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+```
+
+Der Multi-Stage-Build im Dockerfile minimiert die finale Image-Grösse auf unter 50 MB, da lediglich die statischen Dateien und der nginx-Server in das Produktions-Image übernommen werden.
+
+## CMS-Ansatz
+
+GreenSport Graubünden verfolgt einen **File-Based Content Management**-Ansatz. Sämtliche Inhalte werden als Markdown-Dateien im Git-Repository verwaltet. Dieser Ansatz bietet folgende Vorteile gegenüber einem traditionellen CMS:
+
+| Aspekt | File-Based (gewählt) | Traditionelles CMS |
+|---|---|---|
+| Sicherheit | Keine Datenbank, keine Angriffsfläche | Regelmässige Sicherheitsupdates nötig |
+| Performance | Statische Dateien, maximale Geschwindigkeit | Dynamische Seitengenerierung |
+| Kosten | Kein CMS-Hosting oder Lizenzgebühren | Hosting- und ggf. Lizenzkosten |
+| Versionierung | Git-History für alle Änderungen | Eigenes Versionierungssystem |
+| Komplexität | Markdown-Kenntnisse erforderlich | WYSIWYG-Editor |
+
+Inhaltliche Aktualisierungen (neue Events, Blog-Artikel, Datenaktualisierungen) erfolgen über Git-Commits. Der Build-Prozess generiert die statische Website automatisch bei jeder Änderung.
+
+## Hosting und Sicherheit
+
+### Hosting-Strategie
+
+Die Plattform wird als Docker-Container bereitgestellt und ist auf jeder Hosting-Plattform einsetzbar, die Docker unterstützt (z.B. Hetzner Cloud, DigitalOcean, Azure Container Instances, lokale Server). Der Container exponiert Port 8080 und liefert die statischen Dateien über nginx aus.
+
+### Sicherheitsmassnahmen
+
+Da es sich um eine rein statische Website ohne Backend, Datenbank oder Benutzerauthentifizierung handelt, ist die Angriffsfläche minimal. Dennoch werden folgende Sicherheitsmassnahmen implementiert:
+
+**HTTP-Security-Headers (nginx-Konfiguration):**
+
+| Header | Wert | Zweck |
+|---|---|---|
+| `Content-Security-Policy` | `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'` | Schutz vor Cross-Site-Scripting (XSS) |
+| `X-Frame-Options` | `DENY` | Schutz vor Clickjacking |
+| `X-Content-Type-Options` | `nosniff` | Verhindert MIME-Type-Sniffing |
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` | Erzwingt HTTPS für ein Jahr |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` | Kontrollierte Referrer-Weitergabe |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` | Deaktiviert unnötige Browser-APIs |
+
+**Weitere Massnahmen:**
+
+- HTTPS-Erzwingung über nginx-Redirect (HTTP 301 → HTTPS)
+- Regelmässige Updates des nginx-Basis-Images
+- Keine Speicherung personenbezogener Daten
+- Keine Cookies (ausser optionaler Sprachpräferenz als `localStorage`-Eintrag)
+
+## SEO-Strategie
+
+Die Suchmaschinenoptimierung ist integraler Bestandteil der technischen Architektur und profitiert massgeblich vom Static-Site-Ansatz.
+
+### Technische SEO-Massnahmen
+
+- **Semantische HTML5-Struktur:** Korrekte Verwendung von `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`. Jede Seite hat exakt eine `<h1>`-Überschrift.
+
+- **Meta-Tags pro Seite:** Jede Seite erhält individuelle `<title>`- und `<meta name="description">`-Tags sowie OpenGraph-Tags (`og:title`, `og:description`, `og:image`, `og:type`, `og:locale`) für optimale Darstellung in sozialen Medien.
+
+- **Sitemap.xml:** Automatische Generierung über `@astrojs/sitemap` mit korrekten `<lastmod>`-Timestamps und `<priority>`-Werten.
+
+- **Hreflang-Tags:** Korrekte Verknüpfung der Sprachversionen:
+
+  ```html
+  <link rel="alternate" hreflang="de" href="https://greensport.example.ch/de/daten" />
+  <link rel="alternate" hreflang="en" href="https://greensport.example.ch/en/data" />
+  ```
+
+- **Performance-Optimierung:** Astros Zero-JS-Default stellt sicher, dass nur die für interaktive Komponenten (Charts, Lightbox) notwendigen Scripts geladen werden. Bilder werden über `<picture>` mit WebP/AVIF-Formaten und `srcset`-Attributen für responsive Auflösungen optimiert.
+
+- **Strukturierte Daten:** JSON-LD-Markup für Events (`Event`-Schema), Artikel (`Article`-Schema) und die Organisation (`Organization`-Schema) gemäss schema.org.
+
+\newpage
+
+
+\newpage
+
 # Zusammenfassung und nächste Schritte
 
-Das vorliegende Spezifikationsdokument definiert die Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur sowie die vollständige Anforderungsspezifikation gemäss HERMES-Methodik.
+Das vorliegende Spezifikationsdokument definiert die Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur, die vollständige Anforderungsspezifikation gemäss HERMES-Methodik sowie die detaillierte technische Funktionsbeschreibung mit Lösungsarchitektur.
 
 Die zentralen Erkenntnisse sind:
 
@@ -871,5 +1148,7 @@ Die zentralen Erkenntnisse sind:
 3. **Neun Seiten, ein Ziel:** Die flache Informationsarchitektur mit sieben Haupt- und zwei Rechtsseiten gewährleistet kurze Klickpfade und eine intuitive Navigation.
 
 4. **15 funktionale und 23 nicht-funktionale Anforderungen:** Die Anforderungen sind vollständig dokumentiert, priorisiert (MoSCoW) und auf die strategischen Ziele rückführbar.
+
+5. **Bewährter Technologie-Stack:** Astro als Static Site Generator, Tailwind CSS für das Styling, Chart.js für Datenvisualisierungen und Docker/nginx für das Deployment bilden eine performante, sichere und wartbare Architektur.
 
 Im nachfolgenden Deliverable C werden auf Basis dieser Spezifikation die Wireframes und das visuelle Designkonzept für die Plattform entwickelt. Dabei wird das Brand-Farbschema (Alpine Green #2D6A4F, Mountain Blue #264653, Alpine Gold #E9C46A) in ein konsistentes Design System überführt.
