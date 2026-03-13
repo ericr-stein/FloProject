@@ -1132,12 +1132,189 @@ Die Suchmaschinenoptimierung ist integraler Bestandteil der technischen Architek
 
 \newpage
 
+# Design und Nutzererfahrung (UX/UI)
+
+Dieses Kapitel definiert die Gestaltungsrichtlinien für die Benutzeroberfläche von GreenSport Graubünden. Es baut auf dem Brand Book (vgl. `brand/BRAND-BOOK.md`) auf und konkretisiert die Anwendung der Markenidentität im Webkontext. Sämtliche Designentscheide orientieren sich an den Bedürfnissen der drei definierten Personas (vgl. Kapitel 2).
+
+## Navigationskonzept
+
+Die Navigation bildet das primäre Orientierungssystem der Plattform und muss auf allen Endgeräten eine effiziente Informationssuche ermöglichen.
+
+### Desktop-Navigation (≥ 1280px)
+
+Die Desktop-Navigation folgt einem horizontalen Layout:
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  [Logo]    Home  Über uns  News  Events  Galerie  Daten    DE|EN │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Logo:** Links positioniert, verlinkt zur Startseite der aktuellen Sprache
+- **Hauptlinks:** Zentriert oder leicht rechts versetzt, horizontal angeordnet
+- **Sprachwechsler:** Rechts positioniert als Toggle-Button (DE | EN)
+- **Sticky-Verhalten:** Der Header fixiert sich beim Scrollen am oberen Viewport-Rand mit einem subtilen Schatten (`box-shadow: 0 1px 3px rgba(0,0,0,0.06)`)
+- **Aktiver Link:** Unterstrichen mit Alpine Green (`#2D6A4F`), 2px solid
+
+### Tablet-Navigation (768px–1279px)
+
+Auf Tablets wird die Navigation komprimiert:
+
+- Weniger Menüeinträge sichtbar; sekundäre Links (Impressum, Datenschutz) nur im Footer
+- Logo und Sprachwechsler bleiben sichtbar
+- Optionaler Hamburger bei sehr engem Viewport
+
+### Mobile-Navigation (< 768px)
+
+```
+┌───────────────────────┐
+│  [Logo]    [≡]  DE|EN │
+└───────────────────────┘
+```
+
+- **Hamburger-Menü (≡):** Öffnet ein Slide-in-Overlay von rechts
+- **Overlay:** Volle Höhe, halbtransparenter dunkler Hintergrund, weisse Menüeinträge
+- **Menüeinträge:** Vertikal gestapelt, grosszügiges Padding (min. 48px Zeilenhöhe)
+- **Schliessen:** X-Button oben rechts oder Klick ausserhalb des Menübereichs
+- **Animation:** Slide-in von rechts, 200ms ease-out
+
+### Footer-Navigation
+
+Der Footer dient als sekundäres Navigationselement und ist auf allen Endgeräten identisch strukturiert:
+
+| Spalte 1 | Spalte 2 | Spalte 3 |
+|---|---|---|
+| **Navigation** | **Rechtliches** | **Kontakt** |
+| Home | Impressum | E-Mail-Link |
+| Über uns | Datenschutz | Social-Media-Icons |
+| News | | |
+| Events | | |
+| Galerie | | |
+| Daten | | |
+
+## Responsives Design
+
+Die Plattform verfolgt einen konsequenten **Mobile-First-Ansatz**: Das Grundlayout wird für Smartphones (375px) gestaltet und über Media Queries für grössere Bildschirme erweitert.
+
+### Breakpoints
+
+| Bezeichnung | Breite | Tailwind-Klasse | Typischer Einsatz |
+|---|---|---|---|
+| **Mobile** | 375px (Basis) | Standard | Einspaltiges Layout, gestapelte Inhalte |
+| **Tablet** | ≥ 768px | `md:` | Zweispaltiges Grid, nebeneinanderliegende Karten |
+| **Desktop** | ≥ 1280px | `xl:` | Dreispaltiges Grid, Sidebar-Layouts, volle Navigation |
+
+### Grid-System
+
+Das Layout basiert auf **CSS Grid** und **Flexbox**, umgesetzt über Tailwind CSS Utility-Klassen:
+
+- **Kartenraster (Events, Blog):** 1 Spalte (Mobile) → 2 Spalten (Tablet) → 3 Spalten (Desktop)
+- **Daten-Dashboard:** 1 Spalte (Mobile) → 2 Spalten (Desktop) mit variablen Spaltenbreiten
+- **Galerie:** 2 Spalten (Mobile) → 3 Spalten (Tablet) → 4 Spalten (Desktop) im Masonry-Layout
+- **Content-Seiten (Über uns, Blog-Artikel):** Zentrierte Einzelspalte, max-width 720px
+
+### Touch-Optimierung
+
+Für mobile Endgeräte gelten folgende Mindestgrössen:
+
+- **Tappbare Elemente:** Mindestens 44 × 44 Pixel (WCAG 2.5.8)
+- **Abstände zwischen Tap-Targets:** Mindestens 8px
+- **Swipe-Gesten:** Unterstützt in der Galerie-Lightbox und ggf. für Kartenkarussells
+
+## Barrierefreiheit (WCAG 2.1 AA)
+
+Die Plattform wird gemäss den Web Content Accessibility Guidelines (WCAG) 2.1 auf Konformitätsstufe AA entwickelt. Dies entspricht den Anforderungen des Schweizer Behindertengleichstellungsgesetzes (BehiG) für öffentlich zugängliche Websites.
+
+### Farbkontraste
+
+Alle Text-Hintergrund-Kombinationen erfüllen die minimalen Kontrastverhältnisse:
+
+| Kombination | Kontrastverhältnis | Anforderung |
+|---|---|---|
+| Gray 900 (`#212529`) auf White (`#FFFFFF`) | 16.1:1 | ≥ 4.5:1 ✓ |
+| Alpine Green (`#2D6A4F`) auf White (`#FFFFFF`) | 5.8:1 | ≥ 4.5:1 ✓ |
+| White (`#FFFFFF`) auf Forest Green (`#1B4332`) | 12.4:1 | ≥ 4.5:1 ✓ |
+| White (`#FFFFFF`) auf Mountain Blue (`#264653`) | 9.7:1 | ≥ 4.5:1 ✓ |
+| Gray 800 (`#343A40`) auf Gray 50 (`#F8F9FA`) | 10.3:1 | ≥ 4.5:1 ✓ |
+
+### Strukturelle Barrierefreiheit
+
+- **Alt-Texte:** Alle informativen Bilder erhalten beschreibende Alt-Texte in der jeweiligen Sprache. Dekorative Bilder erhalten `alt=""`.
+- **Tastaturnavigation:** Die gesamte Plattform ist ausschliesslich per Tastatur bedienbar. Die Tab-Reihenfolge folgt der visuellen Lesereihenfolge.
+- **Skip-to-Content-Link:** Ein unsichtbarer Link am Seitenanfang wird bei Fokus sichtbar und ermöglicht das Überspringen der Navigation direkt zum Hauptinhalt.
+- **ARIA-Labels:** Interaktive Elemente ohne sichtbaren Text (Icons, Hamburger-Menü, Sprachwechsler) erhalten aussagekräftige `aria-label`-Attribute.
+- **Focus-Indikatoren:** Alle fokussierbaren Elemente erhalten einen deutlich sichtbaren Fokusring (2px solid Alpine Green, 2px Offset), der den Standard-Browser-Fokus ersetzt.
+- **Landmarks:** Korrekte Verwendung von ARIA-Landmarks (`role="banner"`, `role="navigation"`, `role="main"`, `role="contentinfo"`) zusätzlich zu den semantischen HTML5-Elementen.
+
+### Barrierefreiheit der Datenvisualisierungen
+
+Chart.js-Diagramme stellen besondere Anforderungen an die Barrierefreiheit:
+
+- **Tabellarische Alternativen:** Jedes Diagramm wird von einer ausklappbaren HTML-Tabelle begleitet, die dieselben Daten in textlicher Form darstellt.
+- **Farbunabhängigkeit:** Datenpunkte werden nicht ausschliesslich über Farbe unterschieden, sondern zusätzlich über Muster (gestreift, gepunktet) oder Labels.
+- **Screen-Reader-Beschreibungen:** Jedes `<canvas>`-Element erhält ein `aria-label` mit einer Zusammenfassung der dargestellten Daten.
+
+## Visuelle Gestaltung
+
+Die visuelle Gestaltung basiert vollständig auf dem Brand Book (vgl. `brand/BRAND-BOOK.md`) und wendet die dort definierten Farben, Typografie und Gestaltungsprinzipien an.
+
+### Farbpalette — Anwendungsregeln
+
+| Bereich | Primärfarbe | Sekundärfarbe | Akzent |
+|---|---|---|---|
+| Navigation/Header | White Background | Alpine Green (aktiver Link) | — |
+| Hero-Sektionen | Forest Green Overlay | — | Alpine Gold (CTA) |
+| Content-Bereich | White Background | Gray 50 (Karten) | Alpine Green (Links) |
+| Datenvisualisierung | Alpine Green (Primärdaten) | Mountain Blue (Vergleich) | Alpine Gold (Highlights) |
+| Footer | Forest Green Background | Meadow Green (Links) | — |
+| CTAs/Buttons | Alpine Green Background | White Text | Alpine Gold (Hover) |
+
+### Typografie-Hierarchie
+
+Die Schrifthierarchie folgt der im Brand Book definierten Grössenskala (Inter, Fallback: system-ui):
+
+- **Seitentitel (h1):** 2.25rem, Bold, Gray 900 — einmal pro Seite
+- **Abschnittstitel (h2):** 1.75rem, Bold, Gray 900 — Hauptgliederung
+- **Untertitel (h3):** 1.375rem, SemiBold, Mountain Blue — Unterabschnitte
+- **Fliesstext:** 1rem, Regular, Gray 800 — maximale Lesebreite 720px, Zeilenhöhe 1.6
+- **Caption/Small:** 0.875rem, Regular, Gray 600 — Bildunterschriften, Metadaten
+
+### Card-basierte Layouts
+
+Die Informationsdarstellung folgt einem Card-Paradigma, das Konsistenz über verschiedene Inhaltstypen gewährleistet:
+
+- **Event-Cards:** Weisser Hintergrund, 1px Border (Gray 100), 12px Border-Radius, Schatten bei Hover
+- **Blog-Cards:** Wie Event-Cards mit Vorschaubild am oberen Rand
+- **Statistik-Cards:** Grauer Hintergrund (Gray 50), prominente Zahl in Alpine Green, Beschreibung in Gray 600
+- **Kontakt-Cards:** Icon links, Text rechts, dezenter linker Rand in Alpine Green
+
+### Whitespace-Prinzipien
+
+Grosszügiger Weissraum ist ein zentrales Gestaltungsmerkmal der Plattform:
+
+- **Sektionsabstände:** 96px (Desktop), 64px (Tablet), 48px (Mobile)
+- **Kartenabstände:** 24px Gap im Grid
+- **Inhaltspadding:** 16px (Mobile), 24px (Tablet), 32px (Desktop)
+- **Absatzabstände:** 1.5rem zwischen Textblöcken
+
+### Datenvisualisierung — Designrichtlinien
+
+Alle Diagramme folgen einheitlichen Gestaltungsprinzipien:
+
+- **Farbserie:** Alpine Green → Mountain Blue → Alpine Gold → Meadow Green → Terracotta (in dieser Reihenfolge)
+- **Achsenbeschriftung:** Gray 600, 0.875rem
+- **Gitternetzlinien:** Gray 100, 1px, gestrichelt
+- **Tooltips:** White Background, 8px Border-Radius, subtiler Schatten, Gray 800 Text
+- **Legende:** Unterhalb des Diagramms, horizontal angeordnet, Gray 800 Text
+
+\newpage
+
 
 \newpage
 
 # Zusammenfassung und nächste Schritte
 
-Das vorliegende Spezifikationsdokument definiert die Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur, die vollständige Anforderungsspezifikation gemäss HERMES-Methodik sowie die detaillierte technische Funktionsbeschreibung mit Lösungsarchitektur.
+Das vorliegende Spezifikationsdokument definiert die Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur, die vollständige Anforderungsspezifikation gemäss HERMES-Methodik, die technische Funktionsbeschreibung mit Lösungsarchitektur sowie das UX/UI-Designkonzept.
 
 Die zentralen Erkenntnisse sind:
 
@@ -1150,5 +1327,7 @@ Die zentralen Erkenntnisse sind:
 4. **15 funktionale und 23 nicht-funktionale Anforderungen:** Die Anforderungen sind vollständig dokumentiert, priorisiert (MoSCoW) und auf die strategischen Ziele rückführbar.
 
 5. **Bewährter Technologie-Stack:** Astro als Static Site Generator, Tailwind CSS für das Styling, Chart.js für Datenvisualisierungen und Docker/nginx für das Deployment bilden eine performante, sichere und wartbare Architektur.
+
+6. **Umfassendes UX/UI-Konzept:** Mobile-First-Design, WCAG 2.1 AA-Konformität und konsistente Anwendung des Brand Books gewährleisten eine barrierefreie und ansprechende Nutzererfahrung.
 
 Im nachfolgenden Deliverable C werden auf Basis dieser Spezifikation die Wireframes und das visuelle Designkonzept für die Plattform entwickelt. Dabei wird das Brand-Farbschema (Alpine Green #2D6A4F, Mountain Blue #264653, Alpine Gold #E9C46A) in ein konsistentes Design System überführt.
