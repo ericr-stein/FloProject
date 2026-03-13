@@ -9,9 +9,9 @@ Requirements for project completion. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: PDF pipeline (Pandoc + Eisvogel + XeLaTeX) produces German academic documents with correct umlauts, page numbers, ToC, and professional formatting
-- [ ] **INFRA-02**: Git repository structured with cohesive navigation (README hub, deliverables/, website/, brand/, project-management/ directories)
-- [ ] **INFRA-03**: Makefile serves as command hub for building PDFs, running website, and executing tests
+- [x] **INFRA-01**: PDF pipeline (Pandoc + Eisvogel + XeLaTeX) produces German academic documents with correct umlauts, page numbers, ToC, and professional formatting
+- [x] **INFRA-02**: Git repository structured with cohesive navigation (README hub, deliverables/, website/, brand/, project-management/ directories)
+- [x] **INFRA-03**: Makefile serves as command hub for building PDFs, running website, and executing tests
 - [ ] **INFRA-04**: Docker multi-stage build produces a working nginx:alpine container serving the website (~15MB image)
 - [ ] **INFRA-05**: Docker Compose setup allows professor to run `docker compose up` and access the site
 
@@ -121,9 +121,9 @@ Deferred to future work. Only if time permits.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
+| INFRA-03 | Phase 1 | Complete |
 | INFRA-04 | Phase 8 | Pending |
 | INFRA-05 | Phase 8 | Pending |
 | BRAND-01 | Phase 4 | Pending |

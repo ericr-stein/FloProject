@@ -9,7 +9,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Infrastructure & PDF Pipeline** - Establish repo structure, Makefile, and Pandoc/Eisvogel/XeLaTeX pipeline
+- [x] **Phase 1: Infrastructure & PDF Pipeline** - Establish repo structure, Makefile, and Pandoc/Eisvogel/XeLaTeX pipeline
 - [ ] **Phase 2: Topic Definition (DEL-A1 to A3)** - Research GreenSport Graubunden use case, Rahmenbedingungen, and Problemstellung
 - [ ] **Phase 3: Technology & Submission (DEL-A4 to A5)** - Technology rationale, HERMES init artifacts, and Deliverable A PDF submission
 - [ ] **Phase 4: Brand Identity** - Create complete brand book with colors, typography, logo, and component patterns
@@ -37,7 +37,7 @@
   3. Makefile commands exist for PDF building, website running, and test execution (even if website/tests are stubs)
 **Plans:** 1 plan
 Plans:
-- [ ] 01-01-PLAN.md — Verify existing infrastructure against INFRA-01/02/03 requirements
+- [x] 01-01-PLAN.md — Verify existing infrastructure against INFRA-01/02/03 requirements
 
 ### Phase 2: Topic Definition (DEL-A1 to A3)
 **Goal**: GreenSport Graubunden use case is fully defined with problem, solution, and context
@@ -183,7 +183,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure & PDF Pipeline | 0/1 | Planning complete | - |
+| 1. Infrastructure & PDF Pipeline | 1/1 | Complete | 2026-03-13 |
 | 2. Topic Definition (DEL-A1 to A3) | 0/? | Not started | - |
 | 3. Technology & Submission (DEL-A4 to A5) | 0/? | Not started | - |
 | 4. Brand Identity | 0/? | Not started | - |
