@@ -18,14 +18,14 @@ progress:
 
 **Core Value:** Deliver a professional, cohesive set of deliverables demonstrating mastery of the full web project lifecycle with a creative sports topic (GreenSport Graubunden).
 
-**Current Focus:** Phase 5 -- Specification Core
+**Current Focus:** Phase 6 -- Specification Technical (DEL-B4 to B7)
 
 ## Current Position
 
-**Phase:** 5 of 12
-**Plan:** 1 of 1 complete
-**Status:** Ready to plan
-**Progress:** [██████████] 100%
+**Phase:** 6 of 12
+**Plan:** Not yet planned
+**Status:** Research + validation done, ready to plan → execute
+**Progress:** [█████░░░░░░░] 5/12 phases complete
 
 ## Deadline Tracker
 
