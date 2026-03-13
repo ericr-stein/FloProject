@@ -4,3 +4,20 @@ services:
       context: ./website
     ports:
       - "8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  tests:
+    image: mcr.microsoft.com/playwright:v1.52.0-noble
+    depends_on:
+      website:
+        condition: service_healthy
+    working_dir: /app
+    volumes:
+      - ./website:/app
+    command: npx playwright test --reporter=list
+    environment:
+      - PLAYWRIGHT_BASE_URL=http://website:80
