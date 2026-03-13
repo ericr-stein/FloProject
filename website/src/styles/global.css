@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 /* ── Brand Tokens ─────────────────────────────── */
+/* Tokens synced from brand/BRAND-BOOK.md — do not edit without updating all three files */
+/* Naming: uses "neutral" instead of "gray" (variables.css uses "gray") — hex values are identical */
 @theme {
   --color-primary: #2D6A4F;
   --color-primary-light: #52B788;
@@ -22,16 +24,15 @@
   --color-neutral-600: #6C757D;
   --color-neutral-800: #343A40;
   --color-neutral-900: #212529;
-  --color-dark-text: #1A1A2E;
   --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 }
 
 /* ── Base Styles ─────────────────────────────── */
 body {
   font-family: var(--font-body);
-  color: var(--color-dark-text);
+  color: var(--color-neutral-800);
   background-color: var(--color-neutral-50);
   line-height: 1.6;
 }
