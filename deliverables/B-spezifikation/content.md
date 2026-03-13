@@ -45,10 +45,10 @@ Die Projektziele werden gemäss HERMES-Methodik in strategische und operative Zi
 | OZ-1 | Webplattform entwickeln | Funktionsfähige Website mit 7 Hauptseiten + Rechtsseiten | 100 % Seitenabdeckung |
 | OZ-2 | Datenvisualisierung implementieren | Interaktive Diagramme und Vergleichsansichten | Min. 3 Visualisierungstypen |
 | OZ-3 | Green-Score-System umsetzen | Normiertes Bewertungssystem mit dokumentierter Methodik | Bewertung für min. 5 Events |
-| OZ-4 | Responsive Design | Optimierte Darstellung auf Desktop, Tablet und Smartphone | Lighthouse Score ≥ 90 |
+| OZ-4 | Responsive Design | Optimierte Darstellung auf Desktop, Tablet und Smartphone | Angestrebter Lighthouse Score ≥ 90 |
 | OZ-5 | Docker-Deployment | Containerisierte Bereitstellung mittels Docker und nginx | Funktionierender Container |
 | OZ-6 | HERMES-Dokumentation | Vollständige Projektdokumentation gemäss Vorgaben | Alle Deliverables abgegeben |
-| OZ-7 | Performance-Optimierung | Lighthouse-Gesamtscore | ≥ 90 in allen Kategorien |
+| OZ-7 | Performance-Optimierung | Lighthouse-Gesamtscore | Angestrebt ≥ 90 in allen Kategorien (Richtwert) |
 
 ### Zielbeziehungen
 
@@ -335,8 +335,8 @@ Die Erreichung der Kommunikationsziele wird anhand der folgenden KPIs gemessen. 
 | Nutzung Anreise-Rechner | Event-Tracking | 50 Berechnungen/Monat | Engagement |
 | Wiederkehrende Besuche | Web-Analytics (Cookie-frei) | > 20 % Return-Rate | Nutzerbindung |
 | Sprachverteilung DE/EN | Web-Analytics | 65 % DE / 35 % EN | Internationalität |
-| Lighthouse Performance Score | Automatisierter Test | ≥ 90 | Technische Qualität |
-| Lighthouse Accessibility Score | Automatisierter Test | ≥ 90 | Barrierefreiheit |
+| Lighthouse Performance Score | Automatisierter Test | ≥ 90 (Richtwert) | Technische Qualität |
+| Lighthouse Accessibility Score | Automatisierter Test | ≥ 90 (Richtwert) | Barrierefreiheit |
 | Absprungrate (Bounce Rate) | Web-Analytics | < 50 % | Nutzererlebnis |
 | Seiten pro Sitzung | Web-Analytics | > 3 Seiten | Navigationsqualität |
 | Mobile-Anteil | Web-Analytics | 40–60 % | Responsive-Design-Validierung |
@@ -470,6 +470,8 @@ i18n: {
 - Datenanalysen und Trendberichte
 - Interviews mit Veranstaltern und Nachhaltigkeitsexpertinnen
 
+**Geplanter Mindestumfang:** Zum Launch werden mindestens 5 Artikel bereitgestellt, um ein fundiertes inhaltliches Angebot zu gewährleisten (vgl. WEB-03).
+
 **Tonalität:** Journalistisch, informativ, datengestützt.
 
 **Verwaltung:** Artikel werden als Markdown-Dateien in Astro Content Collections verwaltet, mit frontmatter-Metadaten für Titel, Datum, Autor, Kategorie, Bild und Beschreibung.
@@ -562,7 +564,7 @@ Der Anreise-Rechner ermöglicht die Eingabe eines Startorts und die Auswahl eine
 | FAQ-Sektion | Häufig gestellte Fragen zu Green Score, Methodik, Datenquellen |
 | Karte | Eingebettete Karte mit Standort der Fachhochschule Graubünden |
 
-**Technische Umsetzung:** Das Kontaktformular wird clientseitig validiert. Da kein Backend vorhanden ist, wird ein Drittanbieter-Service (z. B. Formspree oder Netlify Forms) für die Formularverarbeitung genutzt, oder die Formulardaten werden als `mailto:`-Link aufbereitet.
+**Technische Umsetzung:** Das Kontaktformular wird clientseitig validiert. Da kein Backend vorhanden ist, werden die Formulardaten als `mailto:`-Link aufbereitet — beim Absenden öffnet sich das Standard-E-Mail-Programm der Nutzerin bzw. des Nutzers mit den vorausgefüllten Feldern.
 
 ### Impressum (Legal Notice)
 
@@ -588,7 +590,7 @@ Der Anreise-Rechner ermöglicht die Eingabe eines Startorts und die Auswahl eine
 - Rechtsgrundlage der Datenbearbeitung
 - Verwendung von Cookies (bzw. Cookie-freie Alternative)
 - Rechte der betroffenen Personen (Auskunft, Berichtigung, Löschung)
-- Drittanbieter-Dienste (falls eingesetzt: Formspree, Kartendienst, Fonts)
+- Drittanbieter-Dienste (falls eingesetzt: Kartendienst, Fonts)
 - Aufbewahrungsdauer der Daten
 - Kontaktmöglichkeit für Datenschutzanfragen
 
@@ -760,7 +762,7 @@ Die funktionalen Anforderungen beschreiben das beobachtbare Verhalten des System
 | FA-009 | News-Übersicht | Die News-Seite zeigt eine chronologisch sortierte Liste aller Beiträge mit Teaser, Datum und Bild. | Must | News |
 | FA-010 | News-Kategoriefilter | News-Beiträge können nach Kategorien gefiltert werden. | Should | News |
 | FA-011 | Bildergalerie | Die Galerie-Seite zeigt Bilder in einem responsiven Grid-Layout mit Lightbox-Funktionalität. | Must | Galerie |
-| FA-012 | Kontaktformular | Ein Kontaktformular mit clientseitiger Validierung ermöglicht die Eingabe von Name, E-Mail, Betreff und Nachricht. | Must | Kontakt |
+| FA-012 | Kontaktformular | Ein Kontaktformular mit clientseitiger Validierung ermöglicht die Eingabe von Name, E-Mail, Betreff und Nachricht. Die Übermittlung erfolgt via `mailto:`-Link (kein Backend erforderlich). | Must | Kontakt |
 | FA-013 | Interaktive Karte | Eine Kartenansicht zeigt die geografische Verteilung der Veranstaltungsorte in Graubünden. | Should | Events |
 | FA-014 | Green-Score-Ranking | Ein Balkendiagramm zeigt alle Events sortiert nach Green Score in einer Vergleichsansicht. | Must | Daten |
 | FA-015 | Mobile Navigation | Auf kleinen Bildschirmen (< 768px) wird die Navigation als ausklappbares Hamburger-Menü dargestellt. | Must | Alle |
@@ -782,7 +784,7 @@ Die nicht-funktionalen Anforderungen definieren Qualitätsmerkmale des Systems, 
 
 | ID | Anforderung | Zielwert | Messmethode |
 |---|---|---|---|
-| NFA-P01 | Lighthouse Performance Score | ≥ 90 | Google Lighthouse Audit |
+| NFA-P01 | Lighthouse Performance Score | ≥ 90 (Orientierungswert, kein Abnahmekriterium) | Google Lighthouse Audit |
 | NFA-P02 | First Contentful Paint (FCP) | < 1.5 Sekunden | Lighthouse / WebPageTest |
 | NFA-P03 | Largest Contentful Paint (LCP) | < 2.5 Sekunden | Lighthouse / WebPageTest |
 | NFA-P04 | Cumulative Layout Shift (CLS) | < 0.1 | Lighthouse |
