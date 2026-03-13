@@ -1309,12 +1309,260 @@ Alle Diagramme folgen einheitlichen Gestaltungsprinzipien:
 
 \newpage
 
+# Projektsteuerung und Betrieb
+
+Dieses Kapitel definiert die organisatorischen Rahmenbedingungen für die Umsetzung und den Betrieb der Plattform GreenSport Graubünden. Es umfasst die HERMES-Phasen und Meilensteine, den detaillierten Projektplan, die Verantwortlichkeiten, das Testkonzept sowie die Abnahme- und Betriebskriterien.
+
+## HERMES-Phasen und Meilensteine
+
+Das Projekt folgt der HERMES-Methodik der schweizerischen Bundesverwaltung, adaptiert für ein Modul-Semesterprojekt. Die vier Phasen sind:
+
+| Phase | Meilenstein | Datum | Deliverable | Status |
+|---|---|---|---|---|
+| **Initialisierung** | Projektthema definiert und genehmigt | 16.03.2026 | A — Themadefinition | ✓ Abgeschlossen |
+| **Konzept** | Spezifikation fertiggestellt und abgenommen | 13.04.2026 | B — Spezifikation | In Bearbeitung |
+| **Realisierung** | Wireframes erstellt; Website implementiert | 27.04.–18.05.2026 | C — Wireframes, D — Website | Ausstehend |
+| **Einführung** | Go-Live und Projektabschluss | 18.05.2026 | D — Dokumentation und Deployment | Ausstehend |
+
+### Meilenstein-Detaillierung
+
+**M1 — Initialisierung abgeschlossen (16.03.2026):**
+Projektthema «GreenSport Graubünden» definiert, Projektinitialisierungsauftrag (PIA) genehmigt, Repository-Struktur und PDF-Pipeline eingerichtet.
+
+**M2 — Konzeptphase abgeschlossen (13.04.2026):**
+Spezifikation (Deliverable B) fertiggestellt mit Anforderungskatalog, Lösungsarchitektur, Testkonzept und Projektmanagementplan. Brand Book und Gestaltungsrichtlinien definiert.
+
+**M3 — Realisierung abgeschlossen (18.05.2026):**
+Wireframes (Deliverable C) für alle neun Seiten erstellt. Astro-Website vollständig implementiert, zweisprachig (DE/EN), dockerisiert und getestet. Alle Playwright-Tests bestanden.
+
+**M4 — Einführung und Go-Live (18.05.2026):**
+Docker-Container erfolgreich deployed. Dokumentation vollständig. Projektpräsentation vorbereitet.
+
+## Projektplan
+
+Der nachfolgende Zeitplan detailliert die Arbeitspakete und deren zeitliche Einordnung über das Semester:
+
+### Gantt-Übersicht (Kalenderwochen)
+
+```
+Arbeitspaket                  KW12  KW13  KW14  KW15  KW16  KW17  KW18  KW19  KW20  KW21
+                              16.03 23.03 30.03 06.04 13.04 20.04 27.04 04.05 11.05 18.05
+──────────────────────────── ───── ───── ───── ───── ───── ───── ───── ───── ───── ─────
+Initialisierung
+  Themadefinition (Del. A)     ████
+  Projektinitialisierung       ████
+
+Konzept
+  Recherche & Analyse                ████  ████
+  Anforderungsspezifikation          ████  ████  ████
+  Lösungsarchitektur                       ████  ████
+  Brand Book & Design                      ████  ████
+  Spezifikation (Del. B)                         ████  ▲M2
+
+Realisierung
+  Wireframes (Del. C)                                   ████  ████
+  Astro-Setup & Struktur                                      ████
+  Content-Integration                                         ████  ████
+  Datenvisualisierung                                               ████  ████
+  i18n & Übersetzung                                                ████  ████
+  Docker & Deployment                                                     ████
+  Playwright-Tests                                                        ████
+
+Einführung
+  Dokumentation (Del. D)                                                        ████
+  Go-Live & Abnahme                                                             ▲M4
+```
+
+*Legende: ████ = Arbeitsphase, ▲ = Meilenstein*
+
+### Arbeitspakete und geschätzter Aufwand
+
+| AP-Nr. | Arbeitspaket | Geschätzter Aufwand | Phase |
+|---|---|---|---|
+| AP-01 | Themadefinition und PIA | 4 Stunden | Initialisierung |
+| AP-02 | Recherche und Zielgruppenanalyse | 8 Stunden | Konzept |
+| AP-03 | Anforderungsspezifikation | 12 Stunden | Konzept |
+| AP-04 | Lösungsarchitektur und Technik | 6 Stunden | Konzept |
+| AP-05 | Brand Book und Design-Richtlinien | 8 Stunden | Konzept |
+| AP-06 | Spezifikationsdokument (Del. B) | 10 Stunden | Konzept |
+| AP-07 | Wireframes (Del. C) | 12 Stunden | Realisierung |
+| AP-08 | Astro-Projekt-Setup | 6 Stunden | Realisierung |
+| AP-09 | Seitenimplementierung | 20 Stunden | Realisierung |
+| AP-10 | Datenvisualisierungen (Chart.js) | 16 Stunden | Realisierung |
+| AP-11 | i18n und Übersetzungen | 8 Stunden | Realisierung |
+| AP-12 | Docker-Setup und Deployment | 4 Stunden | Realisierung |
+| AP-13 | Playwright-Tests | 8 Stunden | Realisierung |
+| AP-14 | Dokumentation (Del. D) | 6 Stunden | Einführung |
+| AP-15 | Go-Live und Abnahme | 2 Stunden | Einführung |
+| | **Total** | **130 Stunden** | |
+
+## Verantwortlichkeiten
+
+### Projektorganisation
+
+| Rolle | Name | Verantwortung |
+|---|---|---|
+| **Projektleiter** | Eric Rauchenstein | Planung, Umsetzung, Dokumentation, Qualitätssicherung |
+| **Dozent / Auftraggeber** | Prof. Oliver Engelbrecht | Themenfreigabe, Meilenstein-Reviews, Abnahme |
+
+### RACI-Matrix
+
+Die RACI-Matrix definiert die Zuständigkeiten für die Hauptaktivitäten:
+
+| Aktivität | Eric Rauchenstein | Prof. Engelbrecht |
+|---|---|---|
+| Themadefinition | R, A | C, I |
+| Anforderungserhebung | R, A | C |
+| Spezifikation (Del. B) | R, A | I |
+| Wireframes (Del. C) | R, A | I |
+| Website-Entwicklung | R, A | I |
+| Testing | R, A | I |
+| Dokumentation (Del. D) | R, A | I |
+| Abnahme | I | R, A |
+| Notenbewertung | I | R, A |
+
+*Legende: R = Responsible, A = Accountable, C = Consulted, I = Informed*
+
+## Testkonzept (HERMES HERM-05)
+
+Das Testkonzept definiert die Strategie zur Qualitätssicherung der Plattform auf vier Ebenen.
+
+### Teststufen
+
+#### 1. Build-Validierung (Unit-Level)
+
+Der Astro-Build-Prozess (`npm run build`) fungiert als erste Qualitätsstufe:
+
+- Syntaxfehler in Astro/TypeScript-Dateien werden erkannt
+- Fehlende Imports und nicht aufgelöste Referenzen führen zum Build-Abbruch
+- Content-Collections-Schema-Validierung prüft Frontmatter-Vollständigkeit
+- **Ausführung:** Bei jedem Commit automatisch
+
+#### 2. Container-Integrationstests
+
+Nach dem Docker-Build wird die Funktionsfähigkeit des Containers geprüft:
+
+- **Health Check:** `curl -f http://localhost:8080` muss HTTP 200 zurückgeben
+- **Startup-Zeit:** Container muss innerhalb von 10 Sekunden healthy sein
+- **Statische Dateien:** Stichprobenartige Prüfung, ob HTML-Dateien korrekt ausgeliefert werden
+- **Security Headers:** Prüfung der nginx-Response-Header
+
+#### 3. End-to-End-Tests (Playwright)
+
+Automatisierte Browser-Tests validieren das Nutzererlebnis:
+
+| Testkategorie | Testfälle | Beschreibung |
+|---|---|---|
+| **Seitenladung** | 9 Tests (je Seite) | Alle Seiten laden erfolgreich (HTTP 200), korrekte `<title>`-Tags |
+| **Navigation** | 6 Tests | Alle Hauptnavigationslinks führen zur korrekten Seite |
+| **Responsive** | 3 Tests | Layout-Prüfung auf Mobile (375px), Tablet (768px), Desktop (1280px) |
+| **Zweisprachigkeit** | 9 Tests | Alle Seiten existieren in DE und EN; Sprachwechsler funktioniert |
+| **Datenvisualisierung** | 3 Tests | Charts werden gerendert; Tooltips erscheinen bei Hover |
+| **Galerie** | 2 Tests | Lightbox öffnet und schliesst; Tastaturnavigation funktioniert |
+| **Barrierefreiheit** | 3 Tests | axe-core-Audit auf Startseite, Datenseite und Event-Seite |
+
+**Test-Infrastruktur:**
+
+```yaml
+# Playwright-Tests im Docker-Kontext
+services:
+  greensport-web:
+    build: .
+    ports:
+      - "8080:80"
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.49.0
+    depends_on:
+      greensport-web:
+        condition: service_healthy
+    command: npx playwright test
+    volumes:
+      - ./tests:/tests
+      - ./playwright.config.ts:/playwright.config.ts
+```
+
+#### 4. Manuelle Abnahmetests
+
+Ergänzend zu den automatisierten Tests werden folgende manuelle Prüfungen durchgeführt:
+
+- Visueller Vergleich mit Wireframes (Deliverable C)
+- Prüfung der Textinhalte auf Vollständigkeit und sprachliche Korrektheit
+- Cross-Browser-Test in Chrome, Firefox und Safari
+- Lighthouse-Audit (Performance, Accessibility, Best Practices, SEO)
+
+### Test-Umgebung
+
+Alle Tests werden in der Docker-Compose-Umgebung ausgeführt, die der Produktionsumgebung entspricht. Dies stellt sicher, dass keine Abweichungen zwischen Test- und Produktionsbetrieb auftreten.
+
+## Abnahmekriterien
+
+Die nachfolgenden Kriterien müssen für die erfolgreiche Abnahme der Plattform vollständig erfüllt sein:
+
+### Funktionale Abnahmekriterien
+
+| Nr. | Kriterium | Prüfmethode |
+|---|---|---|
+| AK-01 | Alle neun Seiten sind in Deutsch und Englisch aufrufbar | Playwright-Test |
+| AK-02 | Der Sprachwechsler wechselt korrekt zwischen DE und EN | Playwright-Test |
+| AK-03 | Die Navigation funktioniert auf Mobile, Tablet und Desktop | Playwright-Test (3 Viewports) |
+| AK-04 | CO₂-Vergleichsdiagramme werden korrekt dargestellt | Playwright-Test + Visuell |
+| AK-05 | Green-Score-Radardiagramme zeigen korrekte Daten | Playwright-Test + Visuell |
+| AK-06 | Der Anreise-Rechner liefert plausible Ergebnisse | Manueller Test |
+| AK-07 | Die Galerie-Lightbox funktioniert mit Tastatur und Maus | Playwright-Test |
+| AK-08 | Blog-Artikel werden chronologisch sortiert angezeigt | Playwright-Test |
+| AK-09 | Events können nach Status (kommend/vergangen) gefiltert werden | Playwright-Test |
+
+### Technische Abnahmekriterien
+
+| Nr. | Kriterium | Prüfmethode | Zielwert |
+|---|---|---|---|
+| AK-10 | Docker-Container startet erfolgreich | `docker compose up` | Exit-Code 0, healthy |
+| AK-11 | Lighthouse Performance Score | Chrome DevTools | ≥ 90 |
+| AK-12 | Lighthouse Accessibility Score | Chrome DevTools | ≥ 90 |
+| AK-13 | Lighthouse Best Practices Score | Chrome DevTools | ≥ 90 |
+| AK-14 | Lighthouse SEO Score | Chrome DevTools | ≥ 90 |
+| AK-15 | WCAG 2.1 AA Konformität | axe-core Audit | 0 Violations |
+| AK-16 | Alle Playwright-Tests bestehen | `npx playwright test` | 100 % Pass-Rate |
+| AK-17 | Build-Prozess fehlerfrei | `npm run build` | Exit-Code 0 |
+
+## Go-Live und Wartung
+
+### Deployment-Prozess
+
+Der Go-Live erfolgt nach erfolgreichem Bestehen aller Abnahmekriterien:
+
+1. **Finaler Build:** `npm run build` auf dem aktuellen `main`-Branch
+2. **Docker-Image-Erstellung:** `docker build -t greensport-web:latest .`
+3. **Container-Start:** `docker compose up -d`
+4. **Smoke Test:** Manuelle Prüfung der Startseite und einer Unterseite in beiden Sprachen
+5. **DNS-Konfiguration:** (falls externe Domain vorhanden)
+
+### Monitoring
+
+Im laufenden Betrieb werden folgende Überwachungsmassnahmen eingesetzt:
+
+- **Container Health Check:** Docker-eigener Health-Check-Mechanismus prüft alle 30 Sekunden die Erreichbarkeit
+- **Restart-Policy:** `unless-stopped` stellt sicher, dass der Container nach Abstürzen automatisch neu gestartet wird
+- **Log-Monitoring:** nginx-Access- und Error-Logs werden im Container-Log gespeichert und können über `docker logs` eingesehen werden
+
+### Wartung und Inhaltspflege
+
+Da die Plattform auf einem File-Based-Ansatz basiert, erfolgt die Wartung über den regulären Git-Workflow:
+
+| Aufgabe | Häufigkeit | Vorgehen |
+|---|---|---|
+| **Neue Events hinzufügen** | Bei Bedarf | Markdown-Datei in `content/events/` erstellen, commit & build |
+| **Blog-Artikel publizieren** | Bei Bedarf | Markdown-Datei in `content/blog/` erstellen, commit & build |
+| **Daten aktualisieren** | Jährlich / bei neuen Daten | JSON/YAML-Datendateien aktualisieren, commit & build |
+| **Sicherheitsupdates** | Quartalsweise | npm-Dependencies und Docker-Base-Image aktualisieren |
+| **Dependency-Updates** | Quartalsweise | `npm audit`, Astro- und Tailwind-Versionsupgrades |
+| **Backup** | Nicht erforderlich | Git-Repository = vollständige Versionierung aller Inhalte |
 
 \newpage
 
 # Zusammenfassung und nächste Schritte
 
-Das vorliegende Spezifikationsdokument definiert die Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur, die vollständige Anforderungsspezifikation gemäss HERMES-Methodik, die technische Funktionsbeschreibung mit Lösungsarchitektur sowie das UX/UI-Designkonzept.
+Das vorliegende Spezifikationsdokument definiert die vollständigen Grundlagen für die Umsetzung der Webplattform GreenSport Graubünden. Es umfasst sechs Kernkapitel: die Projektübersicht mit Zielen und Abgrenzung, die Zielgruppenanalyse mit drei Personas, die Content-Strategie und Seitenstruktur, die vollständige Anforderungsspezifikation gemäss HERMES-Methodik, die technische Funktionsbeschreibung mit Lösungsarchitektur, das UX/UI-Designkonzept sowie die Projektsteuerung mit Testkonzept und Meilensteinplanung.
 
 Die zentralen Erkenntnisse sind:
 
@@ -1328,6 +1576,8 @@ Die zentralen Erkenntnisse sind:
 
 5. **Bewährter Technologie-Stack:** Astro als Static Site Generator, Tailwind CSS für das Styling, Chart.js für Datenvisualisierungen und Docker/nginx für das Deployment bilden eine performante, sichere und wartbare Architektur.
 
-6. **Umfassendes UX/UI-Konzept:** Mobile-First-Design, WCAG 2.1 AA-Konformität und konsistente Anwendung des Brand Books gewährleisten eine barrierefreie und ansprechende Nutzererfahrung.
+6. **Umfassendes Testkonzept:** Vier Teststufen — Build-Validierung, Container-Integration, Playwright-E2E-Tests und manuelle Abnahme — gewährleisten die Qualität der Plattform. Lighthouse-Scores von mindestens 90 in allen Kategorien sind als Zielwert definiert.
 
-Im nachfolgenden Deliverable C werden auf Basis dieser Spezifikation die Wireframes und das visuelle Designkonzept für die Plattform entwickelt. Dabei wird das Brand-Farbschema (Alpine Green #2D6A4F, Mountain Blue #264653, Alpine Gold #E9C46A) in ein konsistentes Design System überführt.
+7. **Strukturierter Projektplan:** 15 Arbeitspakete mit einem Gesamtaufwand von 130 Stunden sind über die vier HERMES-Phasen verteilt, mit klaren Meilensteinen und Abnahmekriterien.
+
+Im nachfolgenden Deliverable C werden auf Basis dieser Spezifikation die Wireframes und das visuelle Designkonzept für die Plattform entwickelt. Dabei wird das Brand-Farbschema (Alpine Green #2D6A4F, Mountain Blue #264653, Alpine Gold #E9C46A) in ein konsistentes Design System überführt. Die in Kapitel 6 definierten Abnahmekriterien und das Testkonzept bilden den Rahmen für die Qualitätssicherung in der Realisierungsphase.
