@@ -1767,3 +1767,71 @@ Die Plattform berücksichtigt grundlegende WCAG-2.1-Richtlinien (Stufe AA):
 - **Tastaturnavigation:** Alle interaktiven Elemente sind per Tab-Taste erreichbar. Fokus-Reihenfolge folgt der visuellen Leserichtung. Sichtbarer Fokusring (2px Alpine Gold Outline).
 - **Screenreader:** Semantisches HTML (nav, main, article, section, aside). ARIA-Labels für Icons und interaktive Elemente ohne sichtbaren Text. Alt-Texte für alle Bilder.
 - **Reduzierte Bewegung:** `@media (prefers-reduced-motion: reduce)` deaktiviert alle Animationen und Transitionen.
+
+\newpage
+
+# Zusammenfassung und Empfehlungen
+
+## Kernerkenntnisse
+
+Die vorliegende Wireframe-Dokumentation konkretisiert die in Deliverable B spezifizierten Anforderungen in ein visuell und funktional kohärentes Layout-Konzept. Aus der Gestaltungsarbeit lassen sich folgende zentrale Erkenntnisse ableiten:
+
+**Mobile-first-Ansatz als Zugänglichkeitsgarant.** Die Analyse der Zielgruppen zeigt, dass über 65 % des Sportpublikums Webinhalte primär über mobile Endgeräte konsumiert. Der konsequent verfolgte Mobile-first-Ansatz — ausgehend von 375px Viewport-Breite mit progressiver Erweiterung auf Tablet (768px) und Desktop (1280px) — stellt sicher, dass die Plattform für die Mehrheit der Nutzenden von Beginn an optimal funktioniert. Die Reduktion auf wesentliche Inhalte in der mobilen Ansicht erzwingt zudem eine klare Informationshierarchie, die auch den Desktop-Layouts zugutekommt.
+
+**Kartenbasierte Layouts als Konsistenzprinzip.** Die drei definierten Kartentypen (Event-Karte, Artikel-Karte, Statistik-Karte) bilden das strukturelle Rückgrat der gesamten Plattform. Sie gewährleisten ein einheitliches Erscheinungsbild über alle sieben Hauptseiten hinweg und ermöglichen den Nutzenden ein schnelles, scannendes Erfassen der Inhalte. Die konsistente Gestaltung — identische Eckenradien, Schatten, Paddings und Hover-Effekte — reduziert die kognitive Last und beschleunigt die Orientierung.
+
+**Datenvisualisierungen als zentrales Differenzierungsmerkmal.** Die Seite «Daten & Statistiken» hebt GreenSport Graubünden von vergleichbaren Plattformen ab. Die interaktiven Diagramme (Balkendiagramme für CO₂-Vergleiche, Radardiagramme für Green Scores, Liniendiagramme für Zeitverläufe) ermöglichen eine datengestützte Auseinandersetzung mit der Nachhaltigkeit alpiner Sportveranstaltungen. Die Kombination aus Filteroptionen, Tooltips und responsiven Chart-Layouts stellt sicher, dass die Visualisierungen sowohl auf dem Desktop als auch auf mobilen Geräten aussagekräftig und bedienbar bleiben.
+
+**Zweisprachige Architektur mit Astro i18n.** Die durchgängige Berücksichtigung der Zweisprachigkeit (Deutsch/Englisch) in allen Wireframes — vom Sprachumschalter im Header über lokalisierte URL-Pfade bis hin zu sprachspezifischen Inhaltsblöcken — bildet die Grundlage für eine nahtlose Sprachumschaltung. Die Verwendung von Astros integrierter i18n-Routing-Funktionalität (`/de/...` und `/en/...` Präfixe) ermöglicht eine saubere Trennung der Sprachversionen bei gleichzeitiger Wiederverwendung der Layout-Komponenten.
+
+**WCAG 2.1 AA als Inklusionsstandard.** Die systematische Berücksichtigung der Barrierefreiheit — von Farbkontrasten (mindestens 4.5:1) über Touch-Targets (44×44px) bis hin zu semantischem HTML und ARIA-Labels — gewährleistet, dass die Plattform für alle Nutzenden zugänglich ist, unabhängig von körperlichen Einschränkungen oder der verwendeten Eingabemethode.
+
+## Empfehlungen für die Umsetzung
+
+Basierend auf den Erkenntnissen aus der Wireframe-Erstellung werden folgende Empfehlungen für die technische Implementierung ausgesprochen:
+
+### Komponentenbasierte Entwicklungsstrategie
+
+Die Umsetzung sollte mit den gemeinsamen Komponenten beginnen, bevor seitenspezifische Inhalte entwickelt werden. Konkret wird folgende Reihenfolge empfohlen:
+
+1. **Shared Components (Sprint 1):** Header (inkl. Mobile-Navigation und Sprachumschalter), Footer, Kartenkomponenten (Event-Karte, Artikel-Karte, Statistik-Karte), Button-Komponenten (Primär, Sekundär, Tertiär, Akzent).
+2. **Einfache Seiten (Sprint 2):** Home, Über uns, Kontakt — diese Seiten verwenden primär die bereits implementierten Shared Components und erfordern wenig seitenspezifische Logik.
+3. **Inhaltsseiten (Sprint 3):** News, Events, Galerie — diese Seiten benötigen zusätzliche Filterlogik und Paginierung, bauen aber auf den bestehenden Kartenkomponenten auf.
+4. **Datenseite (Sprint 4):** Daten & Statistiken — diese Seite sollte zuletzt implementiert werden, da sie die Integration von Chart.js erfordert und die komplexeste Interaktionslogik aufweist (dynamische Filter, Tooltips, responsive Diagramm-Anpassungen).
+
+### Responsive-Testing als kontinuierlicher Prozess
+
+Die drei definierten Breakpoints (375px, 768px, 1280px) sollten nicht erst am Ende, sondern während der gesamten Entwicklung getestet werden. Es wird empfohlen, Browser-DevTools mit festen Viewport-Presets zu konfigurieren und jede Komponente unmittelbar nach der Implementierung auf allen drei Breakpoints zu validieren.
+
+### Tailwind-CSS-Integration
+
+Die in den Wireframes definierten Abstände, Schriftgrössen und Farbwerte lassen sich direkt in Tailwind-Utility-Klassen übersetzen. Die `tailwind.config.js` sollte die Brand-Farben (Alpine Green, Mountain Blue, Alpine Gold) als Custom-Colors definieren, sodass Klassen wie `bg-alpine-green`, `text-mountain-blue` und `border-alpine-gold` verfügbar sind. Die konsistenten Paddings (16px Mobile → 24px Desktop) lassen sich über responsive Utility-Klassen (`p-4 md:p-6`) abbilden.
+
+### Performance-Optimierung
+
+- **Lazy Loading für Bilder:** Hero-Bilder und Galeriebilder sollten mit dem `loading="lazy"` Attribut versehen werden, um die initiale Ladezeit zu minimieren. Lediglich das Hero-Bild der Startseite (Above-the-Fold) sollte eager geladen werden.
+- **Chart.js Code-Splitting:** Die Chart.js-Bibliothek sollte nur auf der Datenseite geladen werden, nicht global. Astros Island-Architektur ermöglicht dies durch selektive Hydration (`client:visible`).
+- **Statische Generierung:** Alle Seiten ausser der Datenseite können vollständig statisch generiert werden (SSG), was optimale Ladezeiten garantiert.
+
+### Frühzeitige Docker-Validierung
+
+Die Docker-basierte Bereitstellung (nginx:alpine Container) sollte bereits in der frühen Entwicklungsphase eingerichtet und validiert werden. Ein funktionierender `docker compose up`-Workflow von Beginn an vermeidet Last-Minute-Probleme bei der Bereitstellung und ermöglicht es, die Produktionsumgebung kontinuierlich zu testen. Die in diesem Projekt bereitgestellte Docker-Konfiguration bildet hierfür die Grundlage.
+
+### Qualitätssicherung
+
+- **Lighthouse-Audits:** Regelmässige Durchführung von Lighthouse-Audits (Performance, Accessibility, Best Practices, SEO) mit einem Mindestzielwert von 90 Punkten pro Kategorie.
+- **Cross-Browser-Testing:** Validierung in Chrome, Firefox, Safari und Edge, mindestens auf den aktuellen Hauptversionen.
+- **Accessibility-Testing:** Ergänzend zu automatisierten Tools (axe-core) sollten manuelle Tests mit Screenreadern (NVDA, VoiceOver) durchgeführt werden.
+
+## Nächste Schritte
+
+Mit der Fertigstellung des Wireframe- und Layout-Konzepts ist die konzeptionelle Entwurfsphase des Projekts GreenSport Graubünden abgeschlossen. Die vorliegenden Wireframes bilden — zusammen mit der Themenbeschreibung (Deliverable A) und der technischen Spezifikation (Deliverable B) — die vollständige Planungsgrundlage für die Implementierungsphase.
+
+Der Übergang von der Konzeption zur Umsetzung erfolgt in den nachfolgenden Phasen:
+
+- **Phase 9 — Projektinitialisierung:** Einrichtung des Astro-5.x-Projekts mit Tailwind CSS 4.x, Konfiguration der i18n-Routing-Struktur und Integration der Docker-Build-Pipeline.
+- **Phase 10 — Komponentenentwicklung:** Implementierung der Shared Components gemäss der oben beschriebenen Sprint-Planung.
+- **Phase 11 — Seitenimplementierung:** Umsetzung der einzelnen Seiten mit Inhalten, Bildern und interaktiven Elementen.
+- **Phase 12 — Datenintegration und Testing:** Chart.js-Integration, End-to-End-Tests mit Playwright und finale Qualitätssicherung.
+
+Die in diesem Dokument formulierten Empfehlungen dienen als Leitfaden für die gesamte Implementierungsphase und sollten bei jeder technischen Entscheidung konsultiert werden.
