@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/translations';
+
+const tr = t('en');
+
+const categories = ['All', 'Events', 'Landscape', 'Sustainability', 'Community'];
+const catMap: Record<string, string> = { 'All': 'Alle', 'Events': 'Events', 'Landscape': 'Landschaft', 'Sustainability': 'Nachhaltigkeit', 'Community': 'Community' };
+
+const photos = [
+  { title: 'Engadin Skimarathon 2025', category: 'Events', catEN: 'Events', color: '#2D6A4F' },
+  { title: 'LAAX Greenstyle Initiative', category: 'Sustainability', catEN: 'Sustainability', color: '#264653' },
+  { title: 'Arosa Lenzerheide Panorama', category: 'Landscape', catEN: 'Landscape', color: '#8AB17D' },
+  { title: 'Davos Nordic Volunteers', category: 'Community', catEN: 'Community', color: '#E9C46A' },
+  { title: 'St. Moritz Snow Polo Arena', category: 'Events', catEN: 'Events', color: '#E76F51' },
+  { title: 'Solar Panels Summit Station LAAX', category: 'Sustainability', catEN: 'Sustainability', color: '#2D6A4F' },
+  { title: 'Lenzerheide Biathlon Course', category: 'Events', catEN: 'Events', color: '#264653' },
+  { title: 'Recycling Station Engadin', category: 'Sustainability', catEN: 'Sustainability', color: '#8AB17D' },
+  { title: 'Graubünden Alpine View', category: 'Landscape', catEN: 'Landscape', color: '#2D6A4F' },
+  { title: 'Cleanup Day Volunteers', category: 'Community', catEN: 'Community', color: '#E9C46A' },
+  { title: 'E-Shuttle Arosa', category: 'Sustainability', catEN: 'Sustainability', color: '#264653' },
+  { title: 'Silvretta High Alpine Road', category: 'Landscape', catEN: 'Landscape', color: '#8AB17D' },
+  { title: 'Bikefest Lenzerheide 2025', category: 'Events', catEN: 'Events', color: '#E76F51' },
+  { title: 'Youth Workshop Chur', category: 'Community', catEN: 'Community', color: '#2D6A4F' },
+  { title: 'Flüela Pass Winter', category: 'Landscape', catEN: 'Landscape', color: '#264653' },
+  { title: 'Green Score Award Ceremony', category: 'Events', catEN: 'Events', color: '#E9C46A' },
+];
+
+const videos = [
+  { title: 'GreenSport Graubünden — Project Overview', duration: '3:24' },
+  { title: 'Sustainability Analysis: Engadin Skimarathon', duration: '5:10' },
+  { title: 'Interview: LAAX Greenstyle Manager', duration: '7:45' },
+];
+---
+
+<BaseLayout title={tr.nav.gallery} lang="en">
+
+  <section class="bg-gradient-to-r from-secondary to-secondary-dark text-white py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">{tr.nav.gallery}</h1>
+      <p class="mt-4 text-lg text-neutral-200">Impressions from Alpine Sports in Graubünden</p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-b border-neutral-200">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap gap-3 justify-center">
+        {categories.map((cat, i) => (
+          <button
+            data-filter={cat}
+            class:list={[
+              'gallery-filter px-4 py-2 rounded-full text-sm font-medium transition-colors',
+              i === 0 ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-primary/10 hover:text-primary'
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+        {photos.map((photo, i) => (
+          <a href={`#lightbox-${i}`} class="gallery-item group block" data-category={photo.category}>
+            <div
+              class="aspect-[4/3] rounded-xl flex items-end p-4 relative overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              style={`background-color: ${photo.color};`}
+            >
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="relative z-10 w-full">
+                <span class="inline-block text-xs font-medium bg-white/20 backdrop-blur-sm text-white px-2 py-1 rounded-full mb-2">{photo.category}</span>
+                <h3 class="text-white font-bold text-sm">{photo.title}</h3>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {photos.map((photo, i) => (
+    <div id={`lightbox-${i}`} class="lightbox fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center target:flex">
+      <a href="#" class="absolute inset-0 z-0" aria-label="Close"></a>
+      <div class="relative z-10 max-w-[900px] w-full mx-4">
+        <div class="aspect-[16/10] rounded-xl flex items-center justify-center" style={`background-color: ${photo.color};`}>
+          <div class="text-center text-white p-8">
+            <p class="text-sm font-medium opacity-75 mb-2">{photo.category}</p>
+            <h3 class="text-2xl font-bold">{photo.title}</h3>
+          </div>
+        </div>
+        <div class="flex justify-between mt-4">
+          {i > 0 ? (
+            <a href={`#lightbox-${i - 1}`} class="text-white hover:text-accent text-sm font-medium">&larr; Previous</a>
+          ) : <span></span>}
+          <a href="#" class="text-white hover:text-accent text-sm font-medium">Close &times;</a>
+          {i < photos.length - 1 ? (
+            <a href={`#lightbox-${i + 1}`} class="text-white hover:text-accent text-sm font-medium">Next &rarr;</a>
+          ) : <span></span>}
+        </div>
+      </div>
+    </div>
+  ))}
+
+  <section class="py-16 bg-white">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center">Videos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {videos.map(video => (
+          <div class="rounded-xl border border-neutral-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div class="aspect-video bg-secondary flex items-center justify-center">
+              <div class="text-center text-white">
+                <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <p class="text-xs opacity-60">{video.duration}</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-sm">{video.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .lightbox:target { display: flex; }
+</style>
+
+<script>
+  document.querySelectorAll('.gallery-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.gallery-filter').forEach(b => {
+        b.classList.remove('bg-primary', 'text-white');
+        b.classList.add('bg-neutral-100', 'text-neutral-600');
+      });
+      btn.classList.remove('bg-neutral-100', 'text-neutral-600');
+      btn.classList.add('bg-primary', 'text-white');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (filter === 'All' || item.getAttribute('data-category') === filter) {
+          (item as HTMLElement).style.display = '';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
