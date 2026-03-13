@@ -17,9 +17,9 @@ Requirements for project completion. Each maps to roadmap phases.
 
 ### Brand Identity
 
-- [ ] **BRAND-01**: Brand book defines color palette, typography, logo, spacing, and component patterns for GreenSport Graubünden
-- [ ] **BRAND-02**: Brand book applied consistently across website and all PDF deliverables (Eisvogel template customized)
-- [ ] **BRAND-03**: Brand book documented as a standalone reference in the repository
+- [x] **BRAND-01**: Brand book defines color palette, typography, logo, spacing, and component patterns for GreenSport Graubünden
+- [x] **BRAND-02**: Brand book applied consistently across website and all PDF deliverables (Eisvogel template customized)
+- [x] **BRAND-03**: Brand book documented as a standalone reference in the repository
 
 ### Deliverable A — Thema/Beschrieb (5%, min. 2 pages, due 16.03.2026)
 
@@ -126,9 +126,9 @@ Deferred to future work. Only if time permits.
 | INFRA-03 | Phase 1 | Complete |
 | INFRA-04 | Phase 8 | Pending |
 | INFRA-05 | Phase 8 | Pending |
-| BRAND-01 | Phase 4 | Pending |
-| BRAND-02 | Phase 4 | Pending |
-| BRAND-03 | Phase 4 | Pending |
+| BRAND-01 | Phase 4 | Complete |
+| BRAND-02 | Phase 4 | Complete |
+| BRAND-03 | Phase 4 | Complete |
 | DEL-A1 | Phase 2 | Complete |
 | DEL-A2 | Phase 2 | Complete |
 | DEL-A3 | Phase 2 | Complete |
